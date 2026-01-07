@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拍卖大厅 - 鹭易通拍卖平台</title>
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="../css/base/variables.css?v=3">
+  <link rel="stylesheet" href="../css/base/reset.css?v=3">
+  <link rel="stylesheet" href="../css/base/text-colors.css?v=3">
+  <link rel="stylesheet" href="../css/base/utilities.css?v=3">
+  <link rel="stylesheet" href="../css/components/buttons.css?v=3">
+  <link rel="stylesheet" href="../css/components/header.css?v=3">
+  <link rel="stylesheet" href="../css/components/footer.css?v=3">
+  <link rel="stylesheet" href="../css/pages/auction-hall.css?v=3">
+</head>
+<body>
+  <!-- 顶部导航区域 -->
+  <div class="site-header-wrapper">
+    <!-- 国企顶部横幅 -->
+    <div class="state-banner">
+      <div class="container state-banner-content">
+        <div class="state-badge">
+          <i class="iconfont">★</i>
+          <span>国有企业</span>
+        </div>
+        <div class="state-trust-items">
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>资质认证</span>
+          </div>
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>资金监管</span>
+          </div>
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>交易保障</span>
+          </div>
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>诚信服务</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="../index.html" class="header-logo">
+          <div class="header-logo-img">
+            <img src="https://img.zgfczc.com/image/zfdb-logo.png" alt="Logo">
+          </div>
+          <div>
+            <div class="header-logo-text">鹭易通拍卖平台</div>
+            <span class="header-logo-subtitle">State-Owned Enterprise Auction Platform</span>
+          </div>
+        </a>
+
+        <nav class="header-nav">
+          <a href="../index.html" class="nav-item">首页</a>
+          <a href="targets-list.html" class="nav-item">标的物</a>
+          <a href="auction-list.html" class="nav-item">拍卖会</a>
+          <a href="auction-hall.html" class="nav-item active">拍卖大厅</a>
+          <a href="investment.html" class="nav-item">资产招商</a>
+          <a href="notice-list.html" class="nav-item">公告信息</a>
+          <a href="help.html" class="nav-item">帮助中心</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="login.html" class="btn btn-primary">登录 / 注册</a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- 页面头部 -->
+  <section class="page-header-section">
+    <div class="container">
+      <h1>拍卖大厅</h1>
+      <p>实时竞拍,公平公正,轻松拍得心仪资产</p>
+    </div>
+  </section>
+
+  <!-- 主内容区域 -->
+  <section class="content-section">
+    <div class="container">
+      <!-- 筛选表单 -->
+      <div class="filter-section">
+        <form class="filter-form" id="filterForm">
+          <div class="filter-form-item">
+            <label class="filter-form-label">标的类别</label>
+            <select class="filter-select" name="type">
+              <option value="">请选择标的类别</option>
+              <option value="1">房产</option>
+              <option value="2">机动车</option>
+              <option value="3">股权</option>
+              <option value="4">债权</option>
+              <option value="5">土地</option>
+            </select>
+          </div>
+
+          <div class="filter-form-item">
+            <label class="filter-form-label">标的状态</label>
+            <select class="filter-select" name="state">
+              <option value="">请选择标的状态</option>
+              <option value="1">即将开始</option>
+              <option value="2">进行中</option>
+              <option value="3">暂停中</option>
+              <option value="4">已成交</option>
+              <option value="5">已流拍</option>
+              <option value="6">已撤拍</option>
+            </select>
+          </div>
+
+          <div class="filter-form-item">
+            <label class="filter-form-label">标的名称</label>
+            <input type="text" class="filter-input" name="keyword" placeholder="请输入标的名称关键词">
+          </div>
+
+          <div class="filter-buttons">
+            <button type="submit" class="btn btn-primary">搜索</button>
+            <button type="reset" class="btn btn-ghost">重置</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- 表格区域 -->
+      <div class="table-section">
+        <div class="auction-table">
+          <!-- 表头 -->
+          <div class="auction-table-header">
+            <span class="col-name">标的名称</span>
+            <span class="col-area">区域</span>
+            <span class="col-community">小区</span>
+            <span class="col-type">标的类型</span>
+            <span class="col-status">当前状态</span>
+            <span class="col-time">剩余时间</span>
+            <span class="col-start-price">起拍价格</span>
+            <span class="col-current-price">当前价格</span>
+          </div>
+
+          <!-- 表格内容 -->
+          <div class="auction-table-body" id="tableBody">
+            <!-- 标的 1 -->
+            <div class="auction-table-row" data-id="1">
+              <span class="col-name">厦门市思明区住宅房产拍卖</span>
+              <span class="col-area">思明区</span>
+              <span class="col-community">瑞景公园</span>
+              <span class="col-type">房产</span>
+              <span class="col-status"><span class="status-tag ongoing">进行中</span></span>
+              <span class="col-time"><span class="countdown">02天15时30分25秒</span></span>
+              <span class="col-start-price">280万元</span>
+              <span class="col-current-price price">295万元</span>
+            </div>
+
+            <!-- 标的 2 -->
+            <div class="auction-table-row" data-id="2">
+              <span class="col-name">湖里区写字楼拍卖</span>
+              <span class="col-area">湖里区</span>
+              <span class="col-community">万达广场</span>
+              <span class="col-type">房产</span>
+              <span class="col-status"><span class="status-tag waiting">即将开始</span></span>
+              <span class="col-time"><span class="countdown">05天08时45分12秒</span></span>
+              <span class="col-start-price">150万元</span>
+              <span class="col-current-price">-</span>
+            </div>
+
+            <!-- 标的 3 -->
+            <div class="auction-table-row" data-id="3">
+              <span class="col-name">奔驰S400豪华轿车</span>
+              <span class="col-area">-</span>
+              <span class="col-community">-</span>
+              <span class="col-type">机动车</span>
+              <span class="col-status"><span class="status-tag ongoing">进行中</span></span>
+              <span class="col-time"><span class="countdown">01天22时10分05秒</span></span>
+              <span class="col-start-price">45万元</span>
+              <span class="col-current-price price">48万元</span>
+            </div>
+
+            <!-- 标的 4 -->
+            <div class="auction-table-row" data-id="4">
+              <span class="col-name">集美区住宅房产</span>
+              <span class="col-area">集美区</span>
+              <span class="col-community">杏林湾</span>
+              <span class="col-type">房产</span>
+              <span class="col-status"><span class="status-tag completed">已成交</span></span>
+              <span class="col-time">00天00时00分00秒</span>
+              <span class="col-start-price">180万元</span>
+              <span class="col-current-price price">210万元</span>
+            </div>
+
+            <!-- 标的 5 -->
+            <div class="auction-table-row" data-id="5">
+              <span class="col-name">同安区工业用地</span>
+              <span class="col-area">同安区</span>
+              <span class="col-community">同安工业园</span>
+              <span class="col-type">土地</span>
+              <span class="col-status"><span class="status-tag waiting">即将开始</span></span>
+              <span class="col-time"><span class="countdown">07天12时30分00秒</span></span>
+              <span class="col-start-price">800万元</span>
+              <span class="col-current-price">-</span>
+            </div>
+
+            <!-- 标的 6 -->
+            <div class="auction-table-row" data-id="6">
+              <span class="col-name">某科技公司股权</span>
+              <span class="col-area">-</span>
+              <span class="col-community">-</span>
+              <span class="col-type">股权</span>
+              <span class="col-status"><span class="status-tag ongoing">进行中</span></span>
+              <span class="col-time"><span class="countdown">03天05时15分40秒</span></span>
+              <span class="col-start-price">320万元</span>
+              <span class="col-current-price price">350万元</span>
+            </div>
+
+            <!-- 标的 7 -->
+            <div class="auction-table-row" data-id="7">
+              <span class="col-name">海沧区住宅房产</span>
+              <span class="col-area">海沧区</span>
+              <span class="col-community">未来橙堡</span>
+              <span class="col-type">房产</span>
+              <span class="col-status"><span class="status-tag paused">暂停中</span></span>
+              <span class="col-time">-</span>
+              <span class="col-start-price">220万元</span>
+              <span class="col-current-price">-</span>
+            </div>
+
+            <!-- 标的 8 -->
+            <div class="auction-table-row" data-id="8">
+              <span class="col-name">翔安区商业房产</span>
+              <span class="col-area">翔安区</span>
+              <span class="col-community">新店</span>
+              <span class="col-type">房产</span>
+              <span class="col-status"><span class="status-tag waiting">即将开始</span></span>
+              <span class="col-time"><span class="countdown">10天18时20分30秒</span></span>
+              <span class="col-start-price">88万元</span>
+              <span class="col-current-price">-</span>
+            </div>
+
+            <!-- 标的 9 -->
+            <div class="auction-table-row" data-id="9">
+              <span class="col-name">宝马X5 SUV</span>
+              <span class="col-area">-</span>
+              <span class="col-community">-</span>
+              <span class="col-type">机动车</span>
+              <span class="col-status"><span class="status-tag ongoing">进行中</span></span>
+              <span class="col-time"><span class="countdown">00天23时45分10秒</span></span>
+              <span class="col-start-price">52万元</span>
+              <span class="col-current-price price">55万元</span>
+            </div>
+
+            <!-- 标的 10 -->
+            <div class="auction-table-row" data-id="10">
+              <span class="col-name">思明区商业债权</span>
+              <span class="col-area">-</span>
+              <span class="col-community">-</span>
+              <span class="col-type">债权</span>
+              <span class="col-status"><span class="status-tag completed">已成交</span></span>
+              <span class="col-time">00天00时00分00秒</span>
+              <span class="col-start-price">120万元</span>
+              <span class="col-current-price price">135万元</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination-section">
+          <div class="pagination">
+            <button class="pagination-btn" disabled>←</button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn">4</button>
+            <button class="pagination-btn">5</button>
+            <button class="pagination-btn">→</button>
+            <span class="pagination-info">共 125 条，13 页</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://img.zgfczc.com/image/zfdb-logo.png" alt="Logo" style="width: 48px; height: 48px; border-radius: 8px;">
+            <span class="footer-logo-text">鹭易通拍卖平台</span>
+          </div>
+          <p class="footer-desc">
+            鹭易通拍卖平台是国有企业旗下的专业金融拍卖平台,致力于为客户提供安全、专业、便捷的在线拍卖服务。
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">快速链接</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="targets-list.html">标的物</a></li>
+            <li><a href="auction-list.html">拍卖会</a></li>
+            <li><a href="auction-hall.html">拍卖大厅</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">信息服务</h4>
+          <ul class="footer-links">
+            <li><a href="notice-list.html">公告信息</a></li>
+            <li><a href="policy-list.html">政策法规</a></li>
+            <li><a href="help.html">帮助中心</a></li>
+            <li><a href="about.html">关于我们</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">联系我们</h4>
+          <ul class="footer-links">
+            <li>客服专线: 0592-2612580</li>
+            <li>地址: 厦门市思明区厦禾路695号四层</li>
+            <li>邮箱: service@xmfczc.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          Copyright © 2010-2025 鹭易通拍卖平台 | 闽ICP备09022811号-2
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/auction-hall.js"></script>
+</body>
+</html>

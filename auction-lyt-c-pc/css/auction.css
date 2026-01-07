@@ -1,0 +1,240 @@
+/* 拍卖会页面样式 */
+
+/* 页面标题横幅 */
+.page-banner {
+  background: linear-gradient(135deg, #CC2131 0%, #A01826 100%);
+  padding: 40px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.banner-content {
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.banner-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.banner-desc {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* 拍卖会容器 */
+.auction-page-container {
+  width: 1400px;
+  margin: 30px auto;
+}
+
+.auction-list-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* 拍卖会卡片 */
+.auction-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.auction-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.auction-img {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  flex-shrink: 0;
+}
+
+.auction-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auction-status {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.auction-status.ongoing {
+  background: #10A1AE;
+}
+
+.auction-status.wait {
+  background: #FFAF1A;
+}
+
+.auction-status.end {
+  background: #999;
+}
+
+.auction-content {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.auction-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.auction-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.auction-info .info-item {
+  display: flex;
+  font-size: 14px;
+}
+
+.auction-info .info-label {
+  color: #606266;
+  flex-shrink: 0;
+  width: 100px;
+}
+
+.auction-info .info-value {
+  color: #333;
+  flex: 1;
+}
+
+.auction-info .info-value.status-ongoing {
+  color: #10A1AE;
+}
+
+.auction-info .info-value.status-wait {
+  color: #FFAF1A;
+}
+
+.auction-info .info-value.status-end {
+  color: #999;
+}
+
+.auction-footer {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.auction-footer .btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+/* 分页样式 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.pagination-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.page-btn:hover:not(:disabled) {
+  border-color: #CC2131;
+  color: #CC2131;
+}
+
+.page-btn:disabled {
+  color: #999;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.page-num {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.page-num:hover {
+  border-color: #CC2131;
+  color: #CC2131;
+}
+
+.page-num.active {
+  background: #CC2131;
+  color: #fff;
+  border-color: #CC2131;
+}
+
+.page-info {
+  margin-left: 16px;
+  font-size: 14px;
+  color: #606266;
+}
+
+/* 响应式 */
+@media (max-width: 1440px) {
+  .page-banner .banner-content,
+  .auction-page-container {
+    width: 1200px;
+  }
+
+  .auction-list-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .page-banner .banner-content,
+  .auction-page-container {
+    width: 960px;
+  }
+
+  .auction-list-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

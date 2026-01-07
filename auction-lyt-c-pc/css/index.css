@@ -1,0 +1,793 @@
+/* 首页样式 */
+
+/* 背景图 */
+.container-img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.container-img img {
+  width: 1920px;
+  height: 380px;
+}
+
+/* 搜索和登录区域 */
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1400px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.left-content {
+  flex: 1;
+}
+
+.slogen {
+  font-size: 38px;
+  color: #CC2131;
+}
+
+.slogen p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 16px;
+  width: 852px;
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.search-ipt {
+  flex: 1;
+  height: 50px;
+  border: none;
+  padding: 0 20px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-btn {
+  width: 100px;
+  text-align: center;
+  background: #CC2131;
+  color: #fff;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 登录框 */
+.login-content {
+  width: 350px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.login-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.avatar {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 14px;
+}
+
+.welcome-info {
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 11px;
+  text-align: center;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn {
+  cursor: pointer;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 4px;
+  margin: 0 8px;
+  width: 64px;
+  text-align: center;
+}
+
+.btn.login {
+  background: #CC2131;
+}
+
+.btn.reg {
+  background: #000;
+}
+
+.qrcode {
+  text-align: center;
+}
+
+.qrcode img {
+  width: 70px;
+  height: 70px;
+  display: block;
+  margin: 0 auto 4px;
+}
+
+.qr-code-title {
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3a3a3a;
+}
+
+.qr-code-desc {
+  font-size: 12px;
+}
+
+.login-bottom {
+  padding: 4px 0;
+  text-align: center;
+  background: #CC2131;
+  color: #fff;
+  font-size: 12px;
+}
+
+/* 政策法规和帮助中心 */
+.wrapper {
+  display: flex;
+  width: 1400px;
+  margin: 15px auto 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 120px;
+  padding: 0 20px;
+}
+
+.wrapper-box {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper-box.f-1 {
+  flex: 1;
+}
+
+.wrapper-box.pad-20 {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.wapper-title {
+  width: 80px;
+  text-align: center;
+}
+
+.title_text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.title_more {
+  font-weight: 400;
+  margin-top: 10px;
+  color: #CC2131;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.title_more a {
+  color: #CC2131;
+}
+
+.notice {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: 20px;
+  font-size: 14px;
+  box-sizing: border-box;
+  height: 100%;
+  border-right: 1px solid #e6e6e6;
+}
+
+.notice-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.notice-row:hover {
+  color: #CC2131;
+}
+
+.notice_title {
+  position: relative;
+  padding-left: 10px;
+  width: 700px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row-icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  margin-right: 6px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #909399;
+}
+
+.notice_time {
+  flex-shrink: 0;
+  margin-left: 20px;
+}
+
+.help-content {
+  margin-left: 20px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 84px);
+  grid-row-gap: 16px;
+  grid-column-gap: 20px;
+}
+
+.help-item {
+  font-size: 14px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  border: 1px solid #C0C0C0;
+  border-radius: 4px;
+  text-align: center;
+  height: 28px;
+  line-height: 28px;
+  cursor: pointer;
+}
+
+.help-item:hover {
+  border-color: #CC2131;
+  color: #CC2131;
+}
+
+.help-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.white-bg {
+  background: #FFF;
+}
+
+.gray-bg {
+  background: #F9FAFB;
+  padding: 30px 0;
+}
+
+.p-30-0 {
+  padding: 30px 0;
+}
+
+/* 通用容器头部 */
+.container {
+  width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.container-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+
+.module-title {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.module-title .title_text {
+  box-shadow: 0 -4px 0 0 inset #CC2131;
+  padding-bottom: 13px;
+}
+
+.container-more {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: #999;
+}
+
+.container-more a {
+  color: #999;
+}
+
+.container-more a:hover {
+  color: #CC2131;
+}
+
+/* 拍卖公告列表 */
+.notice-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.notice-item {
+  background: #F7F8FB;
+  border-radius: 4px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.notice-item:hover {
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.notice-content .notice-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.notice-content .notice-desc {
+  font-size: 14px;
+  color: #606266;
+  margin-bottom: 16px;
+  line-height: 20px;
+}
+
+.notice-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notice-tag {
+  font-size: 12px;
+  padding: 4px 12px;
+  background: rgba(16, 161, 174, 0.13);
+  color: #10A1AE;
+  border-radius: 4px;
+}
+
+.notice-date {
+  font-size: 14px;
+  color: #909399;
+}
+
+/* 标的卡片 */
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background: #fff;
+}
+
+.lots-card {
+  margin-top: 20px;
+  background: #F7F8FB;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lots-card:hover {
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.lots-card .img-wrapper {
+  position: relative;
+  height: 188px;
+}
+
+.lots-card .lots_img {
+  width: 100%;
+  height: 188px;
+  border-radius: 6px 6px 0 0;
+  object-fit: cover;
+}
+
+.lots-card .lots_title {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  font-size: 16px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lots-card .lots_tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  color: #fff;
+  padding: 4px 12px;
+  background: #CC2131;
+  border-radius: 4px 0;
+}
+
+.lots-card .lots-info {
+  padding: 20px 16px 0;
+  box-sizing: border-box;
+}
+
+.lots-card .house_title {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  height: 26px;
+  line-height: 26px;
+}
+
+.lots-card .house_info {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.lots-card .info-col {
+  font-size: 14px;
+  color: #606266;
+}
+
+.lots-card .info-col .iconfont {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.lots-card .info-col+.info-col {
+  margin-left: 20px;
+}
+
+.lots-card .auction-desc {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.lots-card .auction-desc .desc_label {
+  color: #606266;
+}
+
+.lots-card .lots-desc {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
+.lots-card .lots-desc .desc_label {
+  color: #606266;
+}
+
+.lots-card .lots-desc .desc_val {
+  color: #CC2131;
+}
+
+.lots-card .lots-desc .stress {
+  margin-right: 4px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #CC2131;
+}
+
+.lots-card .footer-wrapper {
+  margin-top: 20px;
+  padding-left: 16px;
+}
+
+.lots-card .footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #D9D8D8;
+}
+
+.lots-card .view-count {
+  font-size: 16px;
+  color: #606266;
+}
+
+.lots-card .status-tag {
+  font-size: 14px;
+  padding: 6px 12px 6px 18px;
+  border-radius: 16px 0 0 16px;
+  color: #fff;
+}
+
+.lots-card .status-tag.wait {
+  background: #FFAF1A;
+}
+
+.lots-card .status-tag.ongoing {
+  background: #10A1AE;
+}
+
+.lots-card .status-tag.end {
+  background: #999;
+}
+
+/* 拍卖会列表 */
+.auction-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.auction-card {
+  width: 32%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.auction-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.auction-img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.auction-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auction-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.auction-status.ongoing {
+  background: #10A1AE;
+}
+
+.auction-status.wait {
+  background: #FFAF1A;
+}
+
+.auction-content {
+  padding: 20px;
+}
+
+.auction-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.auction-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auction-info .info-item {
+  display: flex;
+  font-size: 14px;
+}
+
+.auction-info .info-label {
+  color: #606266;
+  flex-shrink: 0;
+}
+
+.auction-info .info-value {
+  color: #333;
+}
+
+/* 资产招商列表 */
+.investment-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.investment-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.investment-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.inv-img {
+  width: 100%;
+  height: 180px;
+}
+
+.inv-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inv-content {
+  padding: 20px;
+}
+
+.inv-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.inv-desc {
+  font-size: 14px;
+  color: #606266;
+  margin-bottom: 16px;
+  line-height: 20px;
+}
+
+.inv-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.inv-area {
+  color: #606266;
+}
+
+.inv-price {
+  color: #CC2131;
+  font-weight: bold;
+}
+
+/* 在线拍卖大厅 */
+.online-hall {
+  margin-top: 20px;
+}
+
+.hall-item {
+  display: flex;
+  background: #F7F8FB;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.hall-item.hot {
+  border: 2px solid #CC2131;
+}
+
+.hall-img {
+  width: 300px;
+  height: 200px;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.hall-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.hall-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hall-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.hall-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.current-price {
+  font-size: 24px;
+  color: #CC2131;
+  font-weight: bold;
+}
+
+.bid-count {
+  font-size: 14px;
+  color: #909399;
+}
+
+.hall-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hall-status .time {
+  font-size: 16px;
+  color: #FFAF1A;
+  font-weight: bold;
+}
+
+.btn-bid {
+  padding: 10px 32px;
+  background: #CC2131;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-bid:hover {
+  background: #D94164;
+}

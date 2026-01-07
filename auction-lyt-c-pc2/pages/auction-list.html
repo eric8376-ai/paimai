@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拍卖会 - 鹭易通拍卖平台</title>
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="../css/base/variables.css?v=3">
+  <link rel="stylesheet" href="../css/base/reset.css?v=3">
+  <link rel="stylesheet" href="../css/base/text-colors.css?v=3">
+  <link rel="stylesheet" href="../css/base/utilities.css?v=3">
+  <link rel="stylesheet" href="../css/components/buttons.css?v=3">
+  <link rel="stylesheet" href="../css/components/header.css?v=3">
+  <link rel="stylesheet" href="../css/components/footer.css?v=3">
+  <link rel="stylesheet" href="../css/pages/auction-list.css?v=3">
+</head>
+<body>
+  <!-- 顶部导航区域 -->
+  <div class="site-header-wrapper">
+    <!-- 国企顶部横幅 -->
+    <div class="state-banner">
+      <div class="container state-banner-content">
+        <div class="state-badge">
+          <i class="iconfont">★</i>
+          <span>国有企业</span>
+        </div>
+        <div class="state-trust-items">
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>资质认证</span>
+          </div>
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>资金监管</span>
+          </div>
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>交易保障</span>
+          </div>
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>诚信服务</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="../index.html" class="header-logo">
+          <div class="header-logo-img">
+            <img src="https://img.zgfczc.com/image/zfdb-logo.png" alt="Logo">
+          </div>
+          <div>
+            <div class="header-logo-text">鹭易通拍卖平台</div>
+            <span class="header-logo-subtitle">State-Owned Enterprise Auction Platform</span>
+          </div>
+        </a>
+
+        <nav class="header-nav">
+          <a href="../index.html" class="nav-item">首页</a>
+          <a href="targets-list.html" class="nav-item">标的物</a>
+          <a href="auction-list.html" class="nav-item active">拍卖会</a>
+          <a href="auction-hall.html" class="nav-item">拍卖大厅</a>
+          <a href="investment.html" class="nav-item">资产招商</a>
+          <a href="notice-list.html" class="nav-item">公告信息</a>
+          <a href="help.html" class="nav-item">帮助中心</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="login.html" class="btn btn-primary">登录 / 注册</a>
+        </div>
+      </div>
+    </header>
+  </div>
+  <!-- 页面头部 -->
+  <section class="page-header-section">
+    <div class="container">
+      <h1>拍卖会</h1>
+      <p>查看所有拍卖会,参与线上竞拍</p>
+    </div>
+  </section>
+
+  <!-- 筛选区域 -->
+  <section class="content-section">
+    <div class="container">
+      <div class="auction-filter-section">
+        <form id="auctionFilterForm">
+          <!-- 拍卖会形式 -->
+          <div class="filter-row">
+            <div class="filter-label">拍卖会形式</div>
+            <div class="filter-options">
+              <button type="button" class="filter-option active" data-filter="modality" data-value="">全部</button>
+              <button type="button" class="filter-option" data-filter="modality" data-value="1">线上同步拍</button>
+              <button type="button" class="filter-option" data-filter="modality" data-value="2">线上网络拍</button>
+              <button type="button" class="filter-option" data-filter="modality" data-value="3">线下拍</button>
+            </div>
+          </div>
+
+          <!-- 委托/拍卖类型 -->
+          <div class="filter-row">
+            <div class="filter-label">委托/拍卖类型</div>
+            <div class="filter-options">
+              <button type="button" class="filter-option active" data-filter="type" data-value="">全部</button>
+              <button type="button" class="filter-option" data-filter="type" data-value="1">国资</button>
+              <button type="button" class="filter-option" data-filter="type" data-value="2">个人委托</button>
+            </div>
+          </div>
+
+          <!-- 拍卖会阶段 -->
+          <div class="filter-row">
+            <div class="filter-label">拍卖会阶段</div>
+            <div class="filter-options">
+              <button type="button" class="filter-option active" data-filter="state" data-value="">全部</button>
+              <button type="button" class="filter-option" data-filter="state" data-value="1">即将开始</button>
+              <button type="button" class="filter-option" data-filter="state" data-value="2">正在进行</button>
+              <button type="button" class="filter-option" data-filter="state" data-value="3">已结束</button>
+            </div>
+          </div>
+
+          <!-- 拍卖时间 -->
+          <div class="filter-row">
+            <div class="filter-label">拍卖时间</div>
+            <div class="filter-options">
+              <button type="button" class="filter-option active" id="clearTimeBtn">全部</button>
+              <input type="date" class="filter-input" id="startTime" placeholder="开始时间" style="min-width: 200px;">
+              <span style="color: var(--text-tertiary);">至</span>
+              <input type="date" class="filter-input" id="endTime" placeholder="结束时间" style="min-width: 200px;">
+            </div>
+          </div>
+
+          <!-- 拍卖会名称 -->
+          <div class="filter-row">
+            <div class="filter-label">拍卖会名称</div>
+            <input type="text" class="filter-input" id="auctionName" placeholder="请输入拍卖会名称关键词">
+            <div class="filter-buttons">
+              <button type="submit" class="btn btn-primary">搜索</button>
+              <button type="button" class="btn btn-ghost" id="resetBtn">重置</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- 拍卖会列表 -->
+      <div class="auction-list-section">
+        <div class="auction-list-grid">
+          <!-- 拍卖会卡片 1 -->
+          <div class="auction-card" data-id="1">
+            <div class="auction-card-header">
+              <h3 class="auction-card-title">2025年1月房产专场拍卖会</h3>
+              <div class="auction-card-meta">
+                <span class="auction-card-meta-item">📅 线上网络拍</span>
+                <span class="auction-card-meta-item">🏛️ 国资</span>
+              </div>
+            </div>
+            <div class="auction-card-body">
+              <div class="auction-card-info">
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">开始时间</span>
+                  <span class="auction-card-info-value">2025-01-15 10:00</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">结束时间</span>
+                  <span class="auction-card-info-value">2025-01-15 16:00</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">拍卖地点</span>
+                  <span class="auction-card-info-value">线上拍卖平台</span>
+                </div>
+              </div>
+              <div class="auction-card-stats">
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">12</div>
+                  <div class="auction-card-stat-label">标的数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">2,458</div>
+                  <div class="auction-card-stat-label">围观次数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">156</div>
+                  <div class="auction-card-stat-label">报名人数</div>
+                </div>
+              </div>
+            </div>
+            <div class="auction-card-footer">
+              <span class="auction-card-status waiting">即将开始</span>
+              <span class="auction-card-time">距离开始 8天5小时</span>
+            </div>
+          </div>
+
+          <!-- 拍卖会卡片 2 -->
+          <div class="auction-card" data-id="2">
+            <div class="auction-card-header">
+              <h3 class="auction-card-title">机动车专场拍卖会(第一期)</h3>
+              <div class="auction-card-meta">
+                <span class="auction-card-meta-item">📡 线上同步拍</span>
+                <span class="auction-card-meta-item">🏛️ 国资</span>
+              </div>
+            </div>
+            <div class="auction-card-body">
+              <div class="auction-card-info">
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">开始时间</span>
+                  <span class="auction-card-info-value">2025-01-10 14:00</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">结束时间</span>
+                  <span class="auction-card-info-value">2025-01-10 18:00</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">拍卖地点</span>
+                  <span class="auction-card-info-value">厦门市湖里区云顶中路</span>
+                </div>
+              </div>
+              <div class="auction-card-stats">
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">8</div>
+                  <div class="auction-card-stat-label">标的数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">3,256</div>
+                  <div class="auction-card-stat-label">围观次数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">89</div>
+                  <div class="auction-card-stat-label">报名人数</div>
+                </div>
+              </div>
+            </div>
+            <div class="auction-card-footer">
+              <span class="auction-card-status ongoing">正在进行</span>
+              <span class="auction-card-time">剩余 2小时35分</span>
+            </div>
+          </div>
+
+          <!-- 拍卖会卡片 3 -->
+          <div class="auction-card" data-id="3">
+            <div class="auction-card-header">
+              <h3 class="auction-card-title">综合资产拍卖会</h3>
+              <div class="auction-card-meta">
+                <span class="auction-card-meta-item">🏢 线下拍</span>
+                <span class="auction-card-meta-item">👤 个人委托</span>
+              </div>
+            </div>
+            <div class="auction-card-body">
+              <div class="auction-card-info">
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">开始时间</span>
+                  <span class="auction-card-info-value">2025-01-20 09:30</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">结束时间</span>
+                  <span class="auction-card-info-value">2025-01-20 17:00</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">拍卖地点</span>
+                  <span class="auction-card-info-value">厦门市政务服务中心拍卖厅</span>
+                </div>
+              </div>
+              <div class="auction-card-stats">
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">25</div>
+                  <div class="auction-card-stat-label">标的数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">1,856</div>
+                  <div class="auction-card-stat-label">围观次数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">67</div>
+                  <div class="auction-card-stat-label">报名人数</div>
+                </div>
+              </div>
+            </div>
+            <div class="auction-card-footer">
+              <span class="auction-card-status waiting">即将开始</span>
+              <span class="auction-card-time">距离开始 13天8小时</span>
+            </div>
+          </div>
+
+          <!-- 拍卖会卡片 4 -->
+          <div class="auction-card" data-id="4">
+            <div class="auction-card-header">
+              <h3 class="auction-card-title">2024年12月房产拍卖会</h3>
+              <div class="auction-card-meta">
+                <span class="auction-card-meta-item">📅 线上网络拍</span>
+                <span class="auction-card-meta-item">🏛️ 国资</span>
+              </div>
+            </div>
+            <div class="auction-card-body">
+              <div class="auction-card-info">
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">开始时间</span>
+                  <span class="auction-card-info-value">2024-12-28 10:00</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">结束时间</span>
+                  <span class="auction-card-info-value">2024-12-28 15:30</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">拍卖地点</span>
+                  <span class="auction-card-info-value">线上拍卖平台</span>
+                </div>
+              </div>
+              <div class="auction-card-stats">
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">15</div>
+                  <div class="auction-card-stat-label">标的数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">5,678</div>
+                  <div class="auction-card-stat-label">围观次数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">234</div>
+                  <div class="auction-card-stat-label">报名人数</div>
+                </div>
+              </div>
+            </div>
+            <div class="auction-card-footer">
+              <span class="auction-card-status ended">已结束</span>
+              <span class="auction-card-time">成交率 86.7%</span>
+            </div>
+          </div>
+
+          <!-- 拍卖会卡片 5 -->
+          <div class="auction-card" data-id="5">
+            <div class="auction-card-header">
+              <h3 class="auction-card-title">股权债权专场拍卖会</h3>
+              <div class="auction-card-meta">
+                <span class="auction-card-meta-item">📡 线上同步拍</span>
+                <span class="auction-card-meta-item">🏛️ 国资</span>
+              </div>
+            </div>
+            <div class="auction-card-body">
+              <div class="auction-card-info">
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">开始时间</span>
+                  <span class="auction-card-info-value">2025-01-25 09:00</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">结束时间</span>
+                  <span class="auction-card-info-value">2025-01-25 12:00</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">拍卖地点</span>
+                  <span class="auction-card-info-value">厦门市思明区厦禾路695号</span>
+                </div>
+              </div>
+              <div class="auction-card-stats">
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">6</div>
+                  <div class="auction-card-stat-label">标的数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">986</div>
+                  <div class="auction-card-stat-label">围观次数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">43</div>
+                  <div class="auction-card-stat-label">报名人数</div>
+                </div>
+              </div>
+            </div>
+            <div class="auction-card-footer">
+              <span class="auction-card-status waiting">即将开始</span>
+              <span class="auction-card-time">距离开始 18天3小时</span>
+            </div>
+          </div>
+
+          <!-- 拍卖会卡片 6 -->
+          <div class="auction-card" data-id="6">
+            <div class="auction-card-header">
+              <h3 class="auction-card-title">土地专场拍卖会</h3>
+              <div class="auction-card-meta">
+                <span class="auction-card-meta-item">📅 线上网络拍</span>
+                <span class="auction-card-meta-item">🏛️ 国资</span>
+              </div>
+            </div>
+            <div class="auction-card-body">
+              <div class="auction-card-info">
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">开始时间</span>
+                  <span class="auction-card-info-value">2025-02-01 10:00</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">结束时间</span>
+                  <span class="auction-card-info-value">2025-02-01 14:00</span>
+                </div>
+                <div class="auction-card-info-row">
+                  <span class="auction-card-info-label">拍卖地点</span>
+                  <span class="auction-card-info-value">线上拍卖平台</span>
+                </div>
+              </div>
+              <div class="auction-card-stats">
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">4</div>
+                  <div class="auction-card-stat-label">标的数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">1,258</div>
+                  <div class="auction-card-stat-label">围观次数</div>
+                </div>
+                <div class="auction-card-stat">
+                  <div class="auction-card-stat-value">38</div>
+                  <div class="auction-card-stat-label">报名人数</div>
+                </div>
+              </div>
+            </div>
+            <div class="auction-card-footer">
+              <span class="auction-card-status waiting">即将开始</span>
+              <span class="auction-card-time">距离开始 25天6小时</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination-section">
+          <div class="pagination">
+            <button class="pagination-btn" disabled>←</button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn">→</button>
+            <span class="pagination-info">共 48 条，3 页</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://img.zgfczc.com/image/zfdb-logo.png" alt="Logo" style="width: 48px; height: 48px; border-radius: 8px;">
+            <span class="footer-logo-text">鹭易通拍卖平台</span>
+          </div>
+          <p class="footer-desc">
+            鹭易通拍卖平台是国有企业旗下的专业金融拍卖平台,致力于为客户提供安全、专业、便捷的在线拍卖服务。
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">快速链接</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="targets-list.html">标的物</a></li>
+            <li><a href="auction-list.html">拍卖会</a></li>
+            <li><a href="auction-hall.html">拍卖大厅</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">信息服务</h4>
+          <ul class="footer-links">
+            <li><a href="notice-list.html">公告信息</a></li>
+            <li><a href="policy-list.html">政策法规</a></li>
+            <li><a href="help.html">帮助中心</a></li>
+            <li><a href="about.html">关于我们</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">联系我们</h4>
+          <ul class="footer-links">
+            <li>客服专线: 0592-2612580</li>
+            <li>地址: 厦门市思明区厦禾路695号四层</li>
+            <li>邮箱: service@xmfczc.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          Copyright © 2010-2025 鹭易通拍卖平台 | 闽ICP备09022811号-2
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/auction-list.js"></script>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>标的物列表 - 鹭易通拍卖平台</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/targets.css">
+</head>
+<body>
+  <!-- 页头导航 -->
+  <header class="page-header">
+    <div class="header-container">
+      <div class="logo">
+        <div class="logo_img">
+          <img src="https://img.zgfczc.com/image/zfdb-logo.png" alt="logo" style="width: 100%; height: 100%;">
+        </div>
+        <div class="logo_text">鹭易通拍卖平台</div>
+      </div>
+      <div class="menu">
+        <div class="menu_item"><a href="../index.html">首页</a></div>
+        <div class="menu_item active"><a href="targets-list.html">标的物</a></div>
+        <div class="menu_item"><a href="auction-list.html">拍卖会</a></div>
+        <div class="menu_item"><a href="auction-hall.html">拍卖大厅</a></div>
+        <div class="menu_item"><a href="investment.html">资产招商</a></div>
+        <div class="menu_item"><a href="notice-list.html">公告信息</a></div>
+        <div class="menu_item"><a href="policy-list.html">政策法规</a></div>
+        <div class="menu_item"><a href="about.html">关于我们</a></div>
+        <div class="menu_item"><a href="help.html">帮助中心</a></div>
+      </div>
+      <div class="user">
+        <a href="login.html">
+          <div class="user_login">欢迎您！请<span class="tip">登录</span>！</div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 页面标题 -->
+  <div class="page-banner">
+    <div class="banner-content">
+      <h1 class="banner-title">标的物查询</h1>
+      <p class="banner-desc">查找您感兴趣的拍卖标的</p>
+    </div>
+  </div>
+
+  <!-- 筛选区域 -->
+  <div class="query-container">
+    <div class="query-box">
+      <div class="query-list">
+        <div class="query_label">标的类别：</div>
+        <div class="query-row">
+          <div class="query_item active">全部</div>
+          <div class="query_item">房产</div>
+          <div class="query_item">机动车</div>
+          <div class="query_item">股权</div>
+          <div class="query_item">债权</div>
+          <div class="query_item">土地</div>
+        </div>
+      </div>
+
+      <div class="query-list">
+        <div class="query_label">标的所在地：</div>
+        <div class="query-row">
+          <select class="query-select">
+            <option value="">请选择省份</option>
+            <option value="1">福建省</option>
+            <option value="2">广东省</option>
+            <option value="3">浙江省</option>
+          </select>
+          <select class="query-select">
+            <option value="">请选择城市</option>
+            <option value="1">厦门市</option>
+            <option value="2">福州市</option>
+            <option value="3">泉州市</option>
+          </select>
+          <select class="query-select">
+            <option value="">请选择区县</option>
+            <option value="1">思明区</option>
+            <option value="2">湖里区</option>
+            <option value="3">集美区</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="query-list">
+        <div class="query_label">标的拍卖状态：</div>
+        <div class="query-row">
+          <div class="query_item active">全部</div>
+          <div class="query_item">即将开始</div>
+          <div class="query_item">进行中</div>
+          <div class="query_item">暂停中</div>
+          <div class="query_item">已成交</div>
+          <div class="query_item">已流拍</div>
+          <div class="query_item">已撤拍</div>
+        </div>
+      </div>
+
+      <div class="query-list">
+        <div class="query_label">标的名称：</div>
+        <input class="query_ipt" type="text" placeholder="请输入标的的名称关键词">
+        <button class="btn btn-primary">搜索</button>
+        <button class="btn btn-outline">重置</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 标的列表 -->
+  <div class="targets-wrapper">
+    <div class="targets-content">
+      <div class="targets-list">
+        <!-- 标的卡片1 -->
+        <div class="lots-card">
+          <div class="img-wrapper">
+            <img class="lots_img" src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="">
+            <div class="lots_title">厦门市思明区住宅房产拍卖</div>
+            <div class="lots_tag">房产</div>
+          </div>
+          <div class="lots-info">
+            <div class="house_title">君临宝邸</div>
+            <div class="house_info">
+              <div class="info-col">
+                <i class="iconfont icon-a-dingwei1"></i><span>思明区</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-house"></i><span>3室2厅2卫</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-area"></i><span>128㎡</span>
+              </div>
+            </div>
+            <div class="auction-desc">
+              <span class="desc_label">预计开始：</span>
+              <span class="desc_val">2025-01-10 10:00</span>
+            </div>
+            <div class="lots-desc">
+              <span class="desc_label">起拍价：</span>
+              <span class="desc_val"><span class="stress">280</span>万元</span>
+            </div>
+          </div>
+          <div class="footer-wrapper">
+            <div class="footer-content">
+              <div class="view-count">1258 次围观</div>
+              <span class="status-tag wait">即将开始</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 标的卡片2 -->
+        <div class="lots-card">
+          <div class="img-wrapper">
+            <img class="lots_img" src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="">
+            <div class="lots_title">湖里区写字楼拍卖</div>
+            <div class="lots_tag">房产</div>
+          </div>
+          <div class="lots-info">
+            <div class="house_title">万达广场</div>
+            <div class="house_info">
+              <div class="info-col">
+                <i class="iconfont icon-a-dingwei1"></i><span>湖里区</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-house"></i><span>2室1厅1卫</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-area"></i><span>85㎡</span>
+              </div>
+            </div>
+            <div class="auction-desc">
+              <span class="desc_label">预计开始：</span>
+              <span class="desc_val">2025-01-12 14:00</span>
+            </div>
+            <div class="lots-desc">
+              <span class="desc_label">起拍价：</span>
+              <span class="desc_val"><span class="stress">150</span>万元</span>
+            </div>
+          </div>
+          <div class="footer-wrapper">
+            <div class="footer-content">
+              <div class="view-count">856 次围观</div>
+              <span class="status-tag ongoing">拍卖中</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 标的卡片3 -->
+        <div class="lots-card">
+          <div class="img-wrapper">
+            <img class="lots_img" src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="">
+            <div class="lots_title">奔驰轿车拍卖</div>
+            <div class="lots_tag">机动车</div>
+          </div>
+          <div class="lots-info">
+            <div class="house_title">奔驰S400</div>
+            <div class="house_info">
+              <div class="info-col">
+                <i class="iconfont icon-a-dingwei1"></i><span>厦门</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-house"></i><span>黑色</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-area"></i><span>3.5万公里</span>
+              </div>
+            </div>
+            <div class="auction-desc">
+              <span class="desc_label">预计开始：</span>
+              <span class="desc_val">2025-01-15 10:00</span>
+            </div>
+            <div class="lots-desc">
+              <span class="desc_label">起拍价：</span>
+              <span class="desc_val"><span class="stress">45</span>万元</span>
+            </div>
+          </div>
+          <div class="footer-wrapper">
+            <div class="footer-content">
+              <div class="view-count">632 次围观</div>
+              <span class="status-tag wait">即将开始</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 标的卡片4 -->
+        <div class="lots-card">
+          <div class="img-wrapper">
+            <img class="lots_img" src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="">
+            <div class="lots_title">集美区住宅房产</div>
+            <div class="lots_tag">房产</div>
+          </div>
+          <div class="lots-info">
+            <div class="house_title">集美大学附近</div>
+            <div class="house_info">
+              <div class="info-col">
+                <i class="iconfont icon-a-dingwei1"></i><span>集美区</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-house"></i><span>2室2厅1卫</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-area"></i><span>95㎡</span>
+              </div>
+            </div>
+            <div class="auction-desc">
+              <span class="desc_label">预计开始：</span>
+              <span class="desc_val">2025-01-18 10:00</span>
+            </div>
+            <div class="lots-desc">
+              <span class="desc_label">起拍价：</span>
+              <span class="desc_val"><span class="stress">180</span>万元</span>
+            </div>
+          </div>
+          <div class="footer-wrapper">
+            <div class="footer-content">
+              <div class="view-count">425 次围观</div>
+              <span class="status-tag wait">即将开始</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 标的卡片5-8 (重复结构) -->
+        <div class="lots-card">
+          <div class="img-wrapper">
+            <img class="lots_img" src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="">
+            <div class="lots_title">同安区工业用地拍卖</div>
+            <div class="lots_tag">土地</div>
+          </div>
+          <div class="lots-info">
+            <div class="house_title">同安工业集中区</div>
+            <div class="house_info">
+              <div class="info-col">
+                <i class="iconfont icon-a-dingwei1"></i><span>同安区</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-area"></i><span>5000㎡</span>
+              </div>
+            </div>
+            <div class="auction-desc">
+              <span class="desc_label">预计开始：</span>
+              <span class="desc_val">2025-01-20 10:00</span>
+            </div>
+            <div class="lots-desc">
+              <span class="desc_label">起拍价：</span>
+              <span class="desc_val"><span class="stress">800</span>万元</span>
+            </div>
+          </div>
+          <div class="footer-wrapper">
+            <div class="footer-content">
+              <div class="view-count">312 次围观</div>
+              <span class="status-tag wait">即将开始</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lots-card">
+          <div class="img-wrapper">
+            <img class="lots_img" src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="">
+            <div class="lots_title">某科技公司股权拍卖</div>
+            <div class="lots_tag">股权</div>
+          </div>
+          <div class="lots-info">
+            <div class="house_title">科技有限公司100%股权</div>
+            <div class="house_info">
+              <div class="info-col">
+                <i class="iconfont icon-a-dingwei1"></i><span>厦门市</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-house"></i><span>注册资本500万</span>
+              </div>
+            </div>
+            <div class="auction-desc">
+              <span class="desc_label">预计开始：</span>
+              <span class="desc_val">2025-01-22 10:00</span>
+            </div>
+            <div class="lots-desc">
+              <span class="desc_label">起拍价：</span>
+              <span class="desc_val"><span class="stress">300</span>万元</span>
+            </div>
+          </div>
+          <div class="footer-wrapper">
+            <div class="footer-content">
+              <div class="view-count">256 次围观</div>
+              <span class="status-tag end">已成交</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lots-card">
+          <div class="img-wrapper">
+            <img class="lots_img" src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="">
+            <div class="lots_title">海沧区住宅房产拍卖</div>
+            <div class="lots_tag">房产</div>
+          </div>
+          <div class="lots-info">
+            <div class="house_title">海沧未来橙堡</div>
+            <div class="house_info">
+              <div class="info-col">
+                <i class="iconfont icon-a-dingwei1"></i><span>海沧区</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-house"></i><span>3室2厅2卫</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-area"></i><span>115㎡</span>
+              </div>
+            </div>
+            <div class="auction-desc">
+              <span class="desc_label">预计开始：</span>
+              <span class="desc_val">2025-01-25 10:00</span>
+            </div>
+            <div class="lots-desc">
+              <span class="desc_label">起拍价：</span>
+              <span class="desc_val"><span class="stress">220</span>万元</span>
+            </div>
+          </div>
+          <div class="footer-wrapper">
+            <div class="footer-content">
+              <div class="view-count">528 次围观</div>
+              <span class="status-tag wait">即将开始</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lots-card">
+          <div class="img-wrapper">
+            <img class="lots_img" src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="">
+            <div class="lots_title">翔安区商业房产拍卖</div>
+            <div class="lots_tag">房产</div>
+          </div>
+          <div class="lots-info">
+            <div class="house_title">翔安汇景广场</div>
+            <div class="house_info">
+              <div class="info-col">
+                <i class="iconfont icon-a-dingwei1"></i><span>翔安区</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-house"></i><span>1室1厅1卫</span>
+              </div>
+              <div class="info-col">
+                <i class="iconfont icon-area"></i><span>65㎡</span>
+              </div>
+            </div>
+            <div class="auction-desc">
+              <span class="desc_label">预计开始：</span>
+              <span class="desc_val">2025-01-28 10:00</span>
+            </div>
+            <div class="lots-desc">
+              <span class="desc_label">起拍价：</span>
+              <span class="desc_val"><span class="stress">88</span>万元</span>
+            </div>
+          </div>
+          <div class="footer-wrapper">
+            <div class="footer-content">
+              <div class="view-count">345 次围观</div>
+              <span class="status-tag wait">即将开始</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 分页 -->
+      <div class="pagination">
+        <div class="pagination-box">
+          <button class="page-btn" disabled>上一页</button>
+          <button class="page-num active">1</button>
+          <button class="page-num">2</button>
+          <button class="page-num">3</button>
+          <button class="page-num">4</button>
+          <button class="page-num">5</button>
+          <button class="page-btn">下一页</button>
+          <span class="page-info">共 48 条</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="page-footer">
+    <div class="footer-content">
+      <div class="content-item">
+        <div class="item-logo">
+          <div class="logo_img">
+            <img src="https://img.zgfczc.com/image/zfdb-logo.png" alt="" style="width: 100%; height: 100%;">
+          </div>
+          <div class="logo-text">
+            <div class="text_title">鹭易通拍卖平台</div>
+            <div class="text_label">WWW.XMFCZC.COM</div>
+          </div>
+        </div>
+        <div class="brief-introduction">买房放心房·一站式服务</div>
+      </div>
+      <div class="item_line"></div>
+      <div class="content-item flex">
+        <div class="item_phone"><i class="iconfont icon-sousuo"></i>0592-2612580</div>
+        <div class="item_add">地址：厦门市思明区厦禾路695号四层（君临宝邸）</div>
+      </div>
+      <div class="item_line"></div>
+      <div class="content-item">
+        <div class="item-code">
+          <div class="code_img">
+            <img src="https://img.zgfczc.com/image/zfdb-logo.png" alt="" style="width: 100%; height: 100%;">
+          </div>
+          <div class="code-info">
+            <div class="code_text">鹭易通拍卖平台</div>
+            <div class="code_text">安心拍·放心购</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      Copyright © 2010-2015 闽ICP备09022811号-2 鹭易通拍卖平台www.fzfang.com 版权所有
+    </div>
+  </footer>
+</body>
+</html>

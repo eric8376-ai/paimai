@@ -1,0 +1,283 @@
+/* ========================================
+   拍卖大厅页面样式
+   ======================================== */
+
+/* 页面头部 */
+.page-header-section {
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+  padding: var(--spacing-10) 0;
+  margin-bottom: var(--spacing-8);
+}
+
+.page-header-section .container h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+  margin-bottom: var(--spacing-3);
+}
+
+.page-header-section .container p {
+  font-size: var(--font-size-lg);
+  color: var(--gray-200);
+}
+
+/* 筛选区域 */
+.filter-section {
+  background: var(--bg-light);
+  padding: var(--spacing-6) 0;
+  margin-bottom: var(--spacing-8);
+  border-radius: var(--radius-lg);
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  align-items: flex-end;
+}
+
+.filter-form-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.filter-form-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.filter-select,
+.filter-input {
+  min-width: 200px;
+  padding: var(--spacing-3) var(--spacing-4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  background: #fff;
+  transition: all var(--transition-base);
+}
+
+.filter-select:hover,
+.filter-input:hover {
+  border-color: var(--primary);
+}
+
+.filter-select:focus,
+.filter-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-100);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+/* 表格区域 */
+.table-section {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.auction-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.auction-table-header {
+  background: var(--bg-light);
+  display: flex;
+  padding: var(--spacing-4) var(--spacing-5);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.auction-table-header span {
+  flex-shrink: 0;
+}
+
+.auction-table-body {
+  background: #fff;
+}
+
+.auction-table-row {
+  display: flex;
+  padding: var(--spacing-4) var(--spacing-5);
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.auction-table-row:hover {
+  background: var(--bg-light);
+}
+
+.auction-table-row:last-child {
+  border-bottom: none;
+}
+
+.auction-table-row span {
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 列宽度 */
+.col-name {
+  width: 300px;
+  margin-right: var(--spacing-6);
+}
+
+.col-area {
+  width: 100px;
+  margin-right: var(--spacing-6);
+}
+
+.col-community {
+  width: 160px;
+  margin-right: var(--spacing-6);
+}
+
+.col-type {
+  width: 100px;
+  margin-right: var(--spacing-6);
+}
+
+.col-status {
+  width: 120px;
+  margin-right: var(--spacing-6);
+}
+
+.col-time {
+  width: 160px;
+  margin-right: var(--spacing-6);
+}
+
+.col-start-price {
+  width: 140px;
+  margin-right: var(--spacing-6);
+}
+
+.col-current-price {
+  width: 140px;
+}
+
+/* 状态标签 */
+.status-tag {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+}
+
+.status-tag.waiting {
+  background: var(--info-light);
+  color: var(--info);
+}
+
+.status-tag.ongoing {
+  background: var(--success-light);
+  color: var(--success);
+}
+
+.status-tag.paused {
+  background: var(--warning-light);
+  color: var(--warning);
+}
+
+.status-tag.completed {
+  background: var(--gray-200);
+  color: var(--gray-600);
+}
+
+.status-tag.failed {
+  background: var(--error-light);
+  color: var(--error);
+}
+
+/* 倒计时 */
+.countdown {
+  font-family: 'Courier New', monospace;
+  font-weight: var(--font-weight-medium);
+  color: var(--error);
+}
+
+/* 价格 */
+.price {
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary);
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-16) var(--spacing-8);
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-4);
+  opacity: 0.5;
+}
+
+.empty-state-text {
+  font-size: var(--font-size-lg);
+}
+
+/* 响应式 */
+@media (max-width: var(--container-xl)) {
+  .auction-table-header,
+  .auction-table-row {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+
+  .col-name {
+    width: 240px;
+  }
+
+  .col-time {
+    width: 140px;
+  }
+}
+
+@media (max-width: var(--container-lg)) {
+  .filter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-select,
+  .filter-input {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .filter-buttons {
+    width: 100%;
+  }
+
+  .filter-buttons .btn {
+    flex: 1;
+  }
+
+  .auction-table {
+    overflow-x: auto;
+  }
+
+  .auction-table-header,
+  .auction-table-body {
+    min-width: 1200px;
+  }
+}

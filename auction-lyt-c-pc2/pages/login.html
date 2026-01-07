@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录 - 鹭易通拍卖平台</title>
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="../css/base/variables.css?v=3">
+  <link rel="stylesheet" href="../css/base/reset.css?v=3">
+  <link rel="stylesheet" href="../css/base/text-colors.css?v=3">
+  <link rel="stylesheet" href="../css/base/utilities.css?v=3">
+  <link rel="stylesheet" href="../css/components/buttons.css?v=3">
+  <link rel="stylesheet" href="../css/pages/login.css?v=3">
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-container">
+      <!-- 左侧信息 -->
+      <div class="login-info">
+        <div class="login-info-badge">
+          <i class="iconfont">★</i>
+          <span>国有企业 · 专业可靠</span>
+        </div>
+        <h1 class="login-info-title">鹭易通拍卖平台<br>欢迎您</h1>
+        <p class="login-info-subtitle">
+          安全可靠的专业金融拍卖平台<br>
+          资金监管 · 交易保障 · 诚信服务
+        </p>
+
+        <div class="login-features">
+          <div class="login-feature">
+            <div class="login-feature-icon">🔒</div>
+            <div class="login-feature-content">
+              <h4>资金监管</h4>
+              <p>第三方资金监管，安全有保障</p>
+            </div>
+          </div>
+
+          <div class="login-feature">
+            <div class="login-feature-icon">✓</div>
+            <div class="login-feature-content">
+              <h4>实名认证</h4>
+              <p>严格实名制度，真实可靠</p>
+            </div>
+          </div>
+
+          <div class="login-feature">
+            <div class="login-feature-icon">📋</div>
+            <div class="login-feature-content">
+              <h4>流程透明</h4>
+              <p>拍卖流程公开透明可追溯</p>
+            </div>
+          </div>
+
+          <div class="login-feature">
+            <div class="login-feature-icon">🤝</div>
+            <div class="login-feature-content">
+              <h4>专业服务</h4>
+              <p>专业团队提供全程服务支持</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧登录表单 -->
+      <div class="login-form-wrapper">
+        <div class="login-form-header">
+          <div class="login-form-logo">
+            <img src="https://img.zgfczc.com/image/zfdb-logo.png" alt="Logo">
+          </div>
+          <h2 class="login-form-title">登录账号</h2>
+          <p class="login-form-subtitle">登录后可参与竞拍、关注标的、管理委托</p>
+        </div>
+
+        <!-- 登录类型切换 -->
+        <div class="login-type-tabs">
+          <button class="login-type-tab active">短信验证码登录</button>
+          <button class="login-type-tab">密码登录</button>
+        </div>
+
+        <!-- 短信登录表单 -->
+        <form id="smsLoginForm">
+          <!-- 手机号 -->
+          <div class="form-field">
+            <label class="form-field-label required">手机号</label>
+            <div class="form-input-wrapper">
+              <i class="form-input-icon">📱</i>
+              <input type="tel" class="form-input" placeholder="请输入手机号">
+            </div>
+          </div>
+
+          <!-- 图形验证码 -->
+          <div class="form-field">
+            <label class="form-field-label required">图形验证码</label>
+            <div class="form-input-with-captcha">
+              <input type="text" class="form-input" placeholder="请输入图形验证码">
+              <img class="captcha-img" src="https://img.zgfczc.com/auction/image/captcha.png" alt="验证码">
+            </div>
+          </div>
+
+          <!-- 短信验证码 -->
+          <div class="form-field">
+            <label class="form-field-label required">短信验证码</label>
+            <div class="form-input-with-sms">
+              <input type="text" class="form-input" placeholder="请输入短信验证码">
+              <button type="button" class="sms-code-btn">获取验证码</button>
+            </div>
+          </div>
+
+          <!-- 登录提示 -->
+          <div class="login-tip">
+            <i class="login-tip-icon">💡</i>
+            <span>Tip：如果手机号未注册，则自动注册后登录</span>
+          </div>
+
+          <!-- 登录按钮 -->
+          <button type="submit" class="login-submit-btn">登录</button>
+        </form>
+
+        <!-- 密码登录表单（隐藏） -->
+        <form id="pwdLoginForm" style="display: none;">
+          <!-- 手机号 -->
+          <div class="form-field">
+            <label class="form-field-label required">手机号</label>
+            <div class="form-input-wrapper">
+              <i class="form-input-icon">📱</i>
+              <input type="tel" class="form-input" placeholder="请输入手机号">
+            </div>
+          </div>
+
+          <!-- 密码 -->
+          <div class="form-field">
+            <label class="form-field-label required">密码</label>
+            <div class="form-input-wrapper">
+              <i class="form-input-icon">🔑</i>
+              <input type="password" class="form-input" placeholder="请输入登录密码">
+            </div>
+          </div>
+
+          <!-- 登录按钮 -->
+          <button type="submit" class="login-submit-btn">登录</button>
+        </form>
+
+        <!-- 分割线 -->
+        <div class="login-divider">
+          <span class="login-divider-text">或</span>
+        </div>
+
+        <!-- 其他登录方式 -->
+        <div class="login-other-methods">
+          <button class="login-other-method">忘记密码?</button>
+          <button class="login-other-method">立即注册</button>
+        </div>
+
+        <!-- 注册提示 -->
+        <div class="login-register-tip">
+          还没有账号？<a href="#">立即注册</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>

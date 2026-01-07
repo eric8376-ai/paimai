@@ -1,0 +1,209 @@
+/* ========================================
+   CSS Reset & 基础样式
+   ======================================== */
+
+/* ===== CSS Reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background-color: var(--bg-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== 文档元素 ===== */
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+/* ===== 块级元素 ===== */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--font-size-5xl); }
+h2 { font-size: var(--font-size-4xl); }
+h3 { font-size: var(--font-size-3xl); }
+h4 { font-size: var(--font-size-2xl); }
+h5 { font-size: var(--font-size-xl); }
+h6 { font-size: var(--font-size-lg); }
+
+p {
+  margin: 0;
+}
+
+/* ===== 列表 ===== */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ===== 链接 ===== */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-base) var(--easing-default);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+a:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ===== 图片 ===== */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== 表单元素 ===== */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+input,
+textarea,
+select {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-3) var(--spacing-4);
+  transition: border-color var(--transition-base) var(--easing-default),
+              box-shadow var(--transition-base) var(--easing-default);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-disabled);
+}
+
+/* ===== 表格 ===== */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* ===== 代码 ===== */
+code,
+kbd,
+samp,
+pre {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+/* ===== HR ===== */
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: var(--spacing-8) 0;
+}
+
+/* ===== 引用 ===== */
+blockquote {
+  margin: 0;
+  padding-left: var(--spacing-6);
+  border-left: 4px solid var(--primary);
+  color: var(--text-secondary);
+}
+
+/* ===== 选中文本 ===== */
+::selection {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* ===== 滚动条 ===== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-500);
+}
+
+/* ===== 焦点可见性 ===== */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ===== 减少动画偏好 ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

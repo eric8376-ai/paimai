@@ -1,0 +1,380 @@
+/* 标的物页面样式 */
+
+/* 页面标题横幅 */
+.page-banner {
+  background: linear-gradient(135deg, #CC2131 0%, #A01826 100%);
+  padding: 40px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.banner-content {
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.banner-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.banner-desc {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* 筛选区域 */
+.query-container {
+  width: 1400px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.query-list {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.query-list:last-child {
+  border-bottom: none;
+}
+
+.query_label {
+  width: 120px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.query-row {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.query_item {
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+  background: #fff;
+}
+
+.query_item:hover {
+  border-color: #CC2131;
+  color: #CC2131;
+}
+
+.query_item.active {
+  background: #CC2131;
+  color: #fff;
+  border-color: #CC2131;
+}
+
+.query-select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 150px;
+  cursor: pointer;
+  outline: none;
+}
+
+.query-select:focus {
+  border-color: #CC2131;
+}
+
+.query_ipt {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 300px;
+  outline: none;
+}
+
+.query_ipt:focus {
+  border-color: #CC2131;
+}
+
+/* 标的列表容器 */
+.targets-wrapper {
+  width: 1400px;
+  margin: 0 auto 30px;
+}
+
+.targets-content {
+  background: #F9FAFB;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.targets-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* 标的卡片样式 */
+.lots-card {
+  background: #F7F8FB;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lots-card:hover {
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.lots-card .img-wrapper {
+  position: relative;
+  height: 188px;
+}
+
+.lots-card .lots_img {
+  width: 100%;
+  height: 188px;
+  border-radius: 6px 6px 0 0;
+  object-fit: cover;
+}
+
+.lots-card .lots_title {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  font-size: 16px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lots-card .lots_tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  color: #fff;
+  padding: 4px 12px;
+  background: #CC2131;
+  border-radius: 4px 0;
+}
+
+.lots-card .lots-info {
+  padding: 20px 16px 0;
+  box-sizing: border-box;
+}
+
+.lots-card .house_title {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  height: 26px;
+  line-height: 26px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lots-card .house_info {
+  display: flex;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.lots-card .info-col {
+  font-size: 14px;
+  color: #606266;
+}
+
+.lots-card .info-col .iconfont {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.lots-card .info-col+.info-col {
+  margin-left: 20px;
+}
+
+.lots-card .auction-desc {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.lots-card .auction-desc .desc_label {
+  color: #606266;
+}
+
+.lots-card .lots-desc {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
+.lots-card .lots-desc .desc_label {
+  color: #606266;
+}
+
+.lots-card .lots-desc .desc_val {
+  color: #CC2131;
+}
+
+.lots-card .lots-desc .stress {
+  margin-right: 4px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #CC2131;
+}
+
+.lots-card .footer-wrapper {
+  margin-top: 20px;
+  padding-left: 16px;
+}
+
+.lots-card .footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #D9D8D8;
+}
+
+.lots-card .view-count {
+  font-size: 16px;
+  color: #606266;
+}
+
+.lots-card .status-tag {
+  font-size: 14px;
+  padding: 6px 12px 6px 18px;
+  border-radius: 16px 0 0 16px;
+  color: #fff;
+}
+
+.lots-card .status-tag.wait {
+  background: #FFAF1A;
+}
+
+.lots-card .status-tag.ongoing {
+  background: #10A1AE;
+}
+
+.lots-card .status-tag.end {
+  background: #999;
+}
+
+/* 分页样式 */
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.page-btn:hover:not(:disabled) {
+  border-color: #CC2131;
+  color: #CC2131;
+}
+
+.page-btn:disabled {
+  color: #999;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.page-num {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.page-num:hover {
+  border-color: #CC2131;
+  color: #CC2131;
+}
+
+.page-num.active {
+  background: #CC2131;
+  color: #fff;
+  border-color: #CC2131;
+}
+
+.page-info {
+  margin-left: 16px;
+  font-size: 14px;
+  color: #606266;
+}
+
+/* 响应式 */
+@media (max-width: 1440px) {
+  .page-banner,
+  .query-container,
+  .targets-wrapper {
+    width: 1200px;
+  }
+
+  .targets-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .page-banner,
+  .query-container,
+  .targets-wrapper {
+    width: 960px;
+  }
+
+  .targets-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .query_label {
+    width: 100px;
+  }
+
+  .query_ipt {
+    width: 200px;
+  }
+}

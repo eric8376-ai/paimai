@@ -1,0 +1,299 @@
+/* ========================================
+   卡片组件
+   ======================================== */
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base) var(--easing-default);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-200);
+}
+
+.card-header {
+  padding: var(--spacing-6);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-top: var(--spacing-2);
+  line-height: var(--line-height-normal);
+}
+
+.card-body {
+  padding: var(--spacing-6);
+}
+
+.card-footer {
+  padding: var(--spacing-6);
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-gray);
+}
+
+/* 卡片变体 */
+.card-elevated {
+  box-shadow: var(--shadow-md);
+  border: none;
+}
+
+.card-elevated:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.card-outlined {
+  border: 2px solid var(--border-color);
+  box-shadow: none;
+}
+
+.card-compact .card-header,
+.card-compact .card-body,
+.card-compact .card-footer {
+  padding: var(--spacing-4);
+}
+
+/* 产品卡片 */
+.product-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base) var(--easing-default);
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.product-card-image {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: var(--bg-gray);
+}
+
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow) var(--easing-default);
+}
+
+.product-card:hover .product-card-image img {
+  transform: scale(1.05);
+}
+
+.product-card-badge {
+  position: absolute;
+  top: var(--spacing-3);
+  left: var(--spacing-3);
+  padding: var(--spacing-1) var(--spacing-3);
+  background: var(--primary);
+  color: #fff;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-sm);
+}
+
+.product-card-content {
+  padding: var(--spacing-5);
+}
+
+.product-card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: var(--line-height-tight);
+}
+
+.product-card-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-4);
+  line-height: var(--line-height-relaxed);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 42px; /* 确保描述至少显示2行 */
+}
+
+.product-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  margin-bottom: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.product-card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.product-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--border-color);
+}
+
+.product-card-price {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary);
+}
+
+.product-card-price-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-normal);
+}
+
+.product-card-action {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+/* 统计卡片 */
+.stat-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  transition: all var(--transition-base) var(--easing-default);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: var(--spacing-4);
+}
+
+.stat-card-icon.primary {
+  background: var(--primary-50);
+  color: var(--primary);
+}
+
+.stat-card-icon.success {
+  background: var(--success-light);
+  color: var(--success);
+}
+
+.stat-card-icon.warning {
+  background: var(--warning-light);
+  color: var(--warning);
+}
+
+.stat-card-icon.error {
+  background: var(--error-light);
+  color: var(--error);
+}
+
+.stat-card-value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-1);
+}
+
+.stat-card-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.stat-card-trend {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-3);
+}
+
+.stat-card-trend.up {
+  color: var(--success);
+}
+
+.stat-card-trend.down {
+  color: var(--error);
+}
+
+/* 信息卡片 */
+.info-card {
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
+  border: none;
+  padding: var(--spacing-8);
+}
+
+.info-card .card-title {
+  color: var(--primary-800);
+}
+
+.info-card .card-subtitle {
+  color: var(--primary-600);
+}
+
+/* 警告卡片 */
+.warning-card {
+  background: var(--warning-light);
+  border: 1px solid var(--warning);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-5);
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: flex-start;
+}
+
+.warning-card-icon {
+  font-size: 24px;
+  color: var(--warning-dark);
+  flex-shrink: 0;
+}
+
+.warning-card-content {
+  flex: 1;
+}
+
+.warning-card-title {
+  font-weight: var(--font-weight-semibold);
+  color: var(--warning-dark);
+  margin-bottom: var(--spacing-1);
+}
+
+.warning-card-message {
+  font-size: var(--font-size-sm);
+  color: var(--warning);
+}

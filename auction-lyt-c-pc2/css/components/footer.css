@@ -1,0 +1,118 @@
+/* ========================================
+   页脚组件样式
+   ======================================== */
+
+.site-footer {
+  background: linear-gradient(135deg, var(--primary-800) 0%, var(--primary-900) 100%);
+  color: var(--gray-200);
+  padding: var(--spacing-16) 0 var(--spacing-8);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--spacing-12);
+  margin-bottom: var(--spacing-12);
+}
+
+.footer-brand {
+  padding-right: var(--spacing-8);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+.footer-logo-text {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: #fff;
+}
+
+.footer-desc {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-6);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: #fff;
+  margin-bottom: var(--spacing-4);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: var(--spacing-3);
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-base) var(--easing-default);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  padding-top: var(--spacing-8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+}
+
+.footer-copyright {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links-inline {
+  display: flex;
+  gap: var(--spacing-6);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links-inline a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color var(--transition-base) var(--easing-default);
+  text-decoration: none;
+}
+
+.footer-links-inline a:hover {
+  color: #fff;
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--spacing-4);
+    text-align: center;
+  }
+}

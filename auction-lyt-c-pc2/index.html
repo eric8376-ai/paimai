@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="鹭易通拍卖平台 - 国有企业金融拍卖平台，提供专业可靠的房产、机动车、股权等在线拍卖服务">
+  <meta name="keywords" content="拍卖,在线拍卖,房产拍卖,机动车拍卖,国企拍卖,金融拍卖">
+  <title>鹭易通拍卖平台 - 专业可靠的国企金融拍卖平台</title>
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="css/base/variables.css?v=3">
+  <link rel="stylesheet" href="css/base/reset.css?v=3">
+  <link rel="stylesheet" href="css/base/text-colors.css?v=3">
+  <link rel="stylesheet" href="css/base/utilities.css?v=3">
+  <link rel="stylesheet" href="css/components/buttons.css?v=3">
+  <link rel="stylesheet" href="css/components/header.css?v=3">
+  <link rel="stylesheet" href="css/components/cards.css?v=3">
+  <link rel="stylesheet" href="css/components/footer.css?v=3">
+  <link rel="stylesheet" href="css/pages/home.css?v=3">
+</head>
+<body>
+  <!-- 顶部固定区域容器 -->
+  <div class="site-header-wrapper">
+    <!-- 国企顶部横幅 -->
+    <div class="state-banner">
+      <div class="container state-banner-content">
+        <div class="state-badge">
+          <i class="iconfont">★</i>
+          <span>国有企业</span>
+        </div>
+        <div class="state-trust-items">
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>资质认证</span>
+          </div>
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>资金监管</span>
+          </div>
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>交易保障</span>
+          </div>
+          <div class="state-trust-item">
+            <i class="iconfont">✓</i>
+            <span>诚信服务</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="header-logo">
+        <div class="header-logo-img">
+          <img src="https://img.zgfczc.com/image/zfdb-logo.png" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <div>
+          <div class="header-logo-text">鹭易通拍卖平台</div>
+          <span class="header-logo-subtitle">State-Owned Enterprise Auction Platform</span>
+        </div>
+      </a>
+
+      <nav class="header-nav">
+        <a href="index.html" class="nav-item active">首页</a>
+        <a href="pages/targets-list.html" class="nav-item">标的物</a>
+        <a href="pages/auction-list.html" class="nav-item">拍卖会</a>
+        <a href="pages/auction-hall.html" class="nav-item">拍卖大厅</a>
+        <a href="pages/investment.html" class="nav-item">资产招商</a>
+        <a href="pages/notice-list.html" class="nav-item">公告信息</a>
+        <a href="pages/help.html" class="nav-item">帮助中心</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="pages/login.html" class="btn btn-primary">登录 / 注册</a>
+      </div>
+    </div>
+  </header>
+  </div>
+  <!-- /顶部固定区域容器 -->
+
+  <!-- Hero 区域 -->
+  <section class="hero-section">
+    <div class="hero-bg-pattern"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <i class="iconfont">★</i>
+            <span>专业可靠 · 值得信赖</span>
+          </div>
+          <h1 class="hero-title">鹭易通拍卖行<br>线上拍卖平台</h1>
+          <p class="hero-subtitle">国有企业 · 资金监管 · 交易保障 · 诚信服务<br>为您提供安全、专业、便捷的在线拍卖体验</p>
+          <div class="hero-search">
+            <input type="text" class="hero-search-input" placeholder="搜索标的物、拍卖会、公告...">
+            <button class="hero-search-btn">
+              <i class="iconfont">🔍</i>
+              搜索
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-login-card">
+            <h3 class="hero-login-title">欢迎来到鹭易通拍卖平台</h3>
+            <p class="hero-login-desc">登录后可参与竞拍、关注标的、管理委托</p>
+            <div class="hero-login-actions">
+              <a href="pages/login.html" class="btn btn-primary btn-block">立即登录</a>
+              <a href="pages/login.html" class="btn btn-secondary btn-block">注册账号</a>
+            </div>
+            <div class="hero-qrcode">
+              <img src="https://img.zgfczc.com/auction/image/lyt-wx-qrcode.png" alt="微信公众号">
+              <p class="hero-qrcode-text">关注微信公众号<br>获取最新拍卖资讯</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 统计数据 -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-icon">💰</div>
+          <div class="stat-value">12.5亿</div>
+          <div class="stat-label">累计成交金额</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">📊</div>
+          <div class="stat-value">3,256</div>
+          <div class="stat-label">成功拍出标的</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value">15,680</div>
+          <div class="stat-label">注册用户</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🏢</div>
+          <div class="stat-value">128</div>
+          <div class="stat-label">合作机构</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 政策法规和帮助中心 -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="grid grid-cols-2 gap-8">
+        <!-- 政策法规 -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">📜 政策法规</h3>
+          </div>
+          <div class="card-body">
+            <ul class="footer-links">
+              <li><a href="pages/policy-list.html">• 民法典关于拍卖的相关规定</a></li>
+              <li><a href="pages/policy-list.html">• 拍卖管理办法最新修订版</a></li>
+              <li><a href="pages/policy-list.html">• 网络拍卖监督管理办法</a></li>
+              <li><a href="pages/policy-list.html">• 国有资产交易管理办法</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 帮助中心 -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">❓ 帮助中心</h3>
+          </div>
+          <div class="card-body">
+            <div class="grid grid-cols-3 gap-3">
+              <a href="pages/help.html" class="btn btn-ghost btn-block">了解拍卖</a>
+              <a href="pages/help.html" class="btn btn-ghost btn-block">实名认证</a>
+              <a href="pages/help.html" class="btn btn-ghost btn-block">竞拍流程</a>
+              <a href="pages/help.html" class="btn btn-ghost btn-block">拍卖规则</a>
+              <a href="pages/help.html" class="btn btn-ghost btn-block">购房政策</a>
+              <a href="pages/help.html" class="btn btn-ghost btn-block">贷款政策</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 拍卖公告 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">最新资讯</div>
+        <h2 class="section-title">拍卖公告</h2>
+        <p class="section-subtitle">及时了解最新拍卖信息，把握投资机会</p>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="房产">
+            <div class="product-card-badge">房产</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">厦门市思明区住宅房产拍卖公告</h3>
+            <p class="product-card-desc">位于厦门市思明区厦禾路695号四层房产一处，建筑面积128平方米</p>
+            <div class="product-card-meta">
+              <div class="product-card-meta-item">
+                <i class="iconfont">📅</i>
+                <span>2025-01-10 开拍</span>
+              </div>
+              <div class="product-card-meta-item">
+                <i class="iconfont">👁</i>
+                <span>1,258 浏览</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="机动车">
+            <div class="product-card-badge">机动车</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">奔驰牌小型轿车拍卖公告</h3>
+            <p class="product-card-desc">奔驰S400，黑色，车况良好，行驶里程3.5万公里</p>
+            <div class="product-card-meta">
+              <div class="product-card-meta-item">
+                <i class="iconfont">📅</i>
+                <span>2025-01-12 开拍</span>
+              </div>
+              <div class="product-card-meta-item">
+                <i class="iconfont">👁</i>
+                <span>856 浏览</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="股权">
+            <div class="product-card-badge">股权</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">某科技有限公司股权拍卖公告</h3>
+            <p class="product-card-desc">某科技有限公司100%股权，注册资本500万元</p>
+            <div class="product-card-meta">
+              <div class="product-card-meta-item">
+                <i class="iconfont">📅</i>
+                <span>2025-01-15 开拍</span>
+              </div>
+              <div class="product-card-meta-item">
+                <i class="iconfont">👁</i>
+                <span>632 浏览</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="土地">
+            <div class="product-card-badge">土地</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">同安区工业用地拍卖公告</h3>
+            <p class="product-card-desc">位于同安工业集中区，工业用地5000平方米</p>
+            <div class="product-card-meta">
+              <div class="product-card-meta-item">
+                <i class="iconfont">📅</i>
+                <span>2025-01-20 开拍</span>
+              </div>
+              <div class="product-card-meta-item">
+                <i class="iconfont">👁</i>
+                <span>425 浏览</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="pages/notice-list.html" class="btn btn-secondary btn-lg">查看更多公告</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门标的 -->
+  <section class="section bg-gray">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">精选推荐</div>
+        <h2 class="section-title">热门标的</h2>
+        <p class="section-subtitle">优质标的物，为您精选推荐</p>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="标的物">
+            <div class="product-card-badge">房产</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">思明区君临宝邸住宅房产</h3>
+            <p class="product-card-desc">3室2厅2卫，128平方米，精装修，视野开阔</p>
+            <div class="product-card-meta">
+              <span class="product-card-meta-item">思明区</span>
+              <span class="product-card-meta-item">128㎡</span>
+              <span class="product-card-meta-item">3室2厅</span>
+            </div>
+            <div class="product-card-footer">
+              <div>
+                <div class="product-card-price-label">起拍价</div>
+                <div class="product-card-price">280<span class="text-sm">万元</span></div>
+              </div>
+              <a href="pages/targets-detail.html" class="btn btn-primary">查看详情</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="标的物">
+            <div class="product-card-badge">房产</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">湖里区万达广场写字楼</h3>
+            <p class="product-card-desc">2室1厅1卫，85平方米，商业办公优选</p>
+            <div class="product-card-meta">
+              <span class="product-card-meta-item">湖里区</span>
+              <span class="product-card-meta-item">85㎡</span>
+              <span class="product-card-meta-item">2室1厅</span>
+            </div>
+            <div class="product-card-footer">
+              <div>
+                <div class="product-card-price-label">起拍价</div>
+                <div class="product-card-price">150<span class="text-sm">万元</span></div>
+              </div>
+              <a href="pages/targets-detail.html" class="btn btn-primary">查看详情</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="标的物">
+            <div class="product-card-badge">机动车</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">奔驰S400豪华轿车</h3>
+            <p class="product-card-desc">黑色，3.5万公里，车况优秀，保养记录完整</p>
+            <div class="product-card-meta">
+              <span class="product-card-meta-item">黑色</span>
+              <span class="product-card-meta-item">3.5万公里</span>
+              <span class="product-card-meta-item">自动挡</span>
+            </div>
+            <div class="product-card-footer">
+              <div>
+                <div class="product-card-price-label">起拍价</div>
+                <div class="product-card-price">45<span class="text-sm">万元</span></div>
+              </div>
+              <a href="pages/targets-detail.html" class="btn btn-primary">查看详情</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="标的物">
+            <div class="product-card-badge">房产</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">集美区住宅房产</h3>
+            <p class="product-card-desc">2室2厅1卫，95平方米，近集美大学</p>
+            <div class="product-card-meta">
+              <span class="product-card-meta-item">集美区</span>
+              <span class="product-card-meta-item">95㎡</span>
+              <span class="product-card-meta-item">2室2厅</span>
+            </div>
+            <div class="product-card-footer">
+              <div>
+                <div class="product-card-price-label">起拍价</div>
+                <div class="product-card-price">180<span class="text-sm">万元</span></div>
+              </div>
+              <a href="pages/targets-detail.html" class="btn btn-primary">查看详情</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="pages/targets-list.html" class="btn btn-secondary btn-lg">查看更多标的</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 拍卖会 -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">即将开始</div>
+        <h2 class="section-title">拍卖会活动</h2>
+        <p class="section-subtitle">专业拍卖会，优质标的集中展示</p>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="拍卖会">
+            <div class="product-card-badge" style="background: var(--success);">进行中</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">2025年1月房产专场拍卖会</h3>
+            <div class="product-card-meta">
+              <span class="product-card-meta-item">15件标的</span>
+              <span class="product-card-meta-item">网络拍卖</span>
+            </div>
+            <div class="product-card-footer">
+              <div>
+                <div class="product-card-price-label">拍卖时间</div>
+                <div class="text-lg font-semibold">2025-01-10 10:00</div>
+              </div>
+              <a href="pages/auction-detail.html" class="btn btn-primary">进入会场</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="拍卖会">
+            <div class="product-card-badge" style="background: var(--warning);">即将开始</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">2025年1月机动车专场拍卖会</h3>
+            <div class="product-card-meta">
+              <span class="product-card-meta-item">8件标的</span>
+              <span class="product-card-meta-item">网络拍卖</span>
+            </div>
+            <div class="product-card-footer">
+              <div>
+                <div class="product-card-price-label">拍卖时间</div>
+                <div class="text-lg font-semibold">2025-01-15 14:00</div>
+              </div>
+              <a href="pages/auction-detail.html" class="btn btn-primary">预约提醒</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="拍卖会">
+            <div class="product-card-badge" style="background: var(--warning);">即将开始</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">2025年1月综合专场拍卖会</h3>
+            <div class="product-card-meta">
+              <span class="product-card-meta-item">25件标的</span>
+              <span class="product-card-meta-item">网络拍卖</span>
+            </div>
+            <div class="product-card-footer">
+              <div>
+                <div class="product-card-price-label">拍卖时间</div>
+                <div class="text-lg font-semibold">2025-01-20 10:00</div>
+              </div>
+              <a href="pages/auction-detail.html" class="btn btn-primary">预约提醒</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img src="https://img.zgfczc.com/auction/image/auction-def.jpg" alt="拍卖会">
+            <div class="product-card-badge" style="background: var(--gray-500);">已结束</div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">2024年12月年终特卖拍卖会</h3>
+            <div class="product-card-meta">
+              <span class="product-card-meta-item">30件标的</span>
+              <span class="product-card-meta-item">成交率85%</span>
+            </div>
+            <div class="product-card-footer">
+              <div>
+                <div class="product-card-price-label">成交金额</div>
+                <div class="text-lg font-semibold">2,580万元</div>
+              </div>
+              <a href="pages/auction-detail.html" class="btn btn-secondary">查看结果</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="pages/auction-list.html" class="btn btn-secondary btn-lg">查看更多拍卖会</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://img.zgfczc.com/image/zfdb-logo.png" alt="Logo" style="width: 48px; height: 48px; border-radius: 8px;">
+            <span class="footer-logo-text">鹭易通拍卖平台</span>
+          </div>
+          <p class="footer-desc">
+            鹭易通拍卖平台是国有企业旗下的专业金融拍卖平台，致力于为客户提供安全、专业、便捷的在线拍卖服务。
+            我们拥有丰富的拍卖经验和专业的服务团队，为各类资产的处置提供全方位的拍卖解决方案。
+          </p>
+          <div class="flex gap-3">
+            <a href="#" class="btn btn-ghost btn-sm">
+              <i class="iconfont">📱</i>
+              微信公众号
+            </a>
+            <a href="#" class="btn btn-ghost btn-sm">
+              <i class="iconfont">📞</i>
+              联系我们
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">快速链接</h4>
+          <ul class="footer-links">
+            <li><a href="pages/targets-list.html">标的物</a></li>
+            <li><a href="pages/auction-list.html">拍卖会</a></li>
+            <li><a href="pages/auction-hall.html">拍卖大厅</a></li>
+            <li><a href="pages/investment.html">资产招商</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">信息服务</h4>
+          <ul class="footer-links">
+            <li><a href="pages/notice-list.html">公告信息</a></li>
+            <li><a href="pages/policy-list.html">政策法规</a></li>
+            <li><a href="pages/help.html">帮助中心</a></li>
+            <li><a href="pages/about.html">关于我们</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">联系我们</h4>
+          <ul class="footer-links">
+            <li>客服专线: 0592-2612580</li>
+            <li>地址: 厦门市思明区厦禾路695号四层</li>
+            <li>邮箱: service@xmfczc.com</li>
+            <li>工作时间: 周一至周五 9:00-18:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          Copyright © 2010-2025 鹭易通拍卖平台 | 闽ICP备09022811号-2
+        </div>
+        <div class="footer-links-inline">
+          <a href="#">隐私政策</a>
+          <a href="#">服务条款</a>
+          <a href="#">法律声明</a>
+          <a href="#">网站地图</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+/* ========================================
+   公告信息页面样式
+   ======================================== */
+
+/* 页面横幅 */
+.page-banner {
+  width: 100%;
+  height: 180px;
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+}
+
+.page-banner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+.page-banner-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.page-banner-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-3);
+}
+
+.page-banner-subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.9;
+}
+
+/* 主内容区域 */
+.notice-section {
+  padding: var(--spacing-8) 0;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--spacing-6);
+  min-height: 60vh;
+}
+
+/* 侧边标签栏 */
+.notice-sidebar {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  height: fit-content;
+}
+
+.notice-tab-item {
+  padding: var(--spacing-5) var(--spacing-4);
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: #fff;
+}
+
+.notice-tab-item:last-child {
+  border-bottom: none;
+}
+
+.notice-tab-item:hover {
+  background: var(--bg-light);
+  color: var(--primary);
+}
+
+.notice-tab-item.active {
+  background: var(--primary);
+  color: #fff;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* 公告列表 */
+.notice-content {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.notice-list {
+  list-style: none;
+  margin-bottom: var(--spacing-8);
+}
+
+.notice-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-4) 0;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.notice-item:last-child {
+  border-bottom: none;
+}
+
+.notice-item:hover {
+  background: var(--bg-light);
+  margin: 0 calc(-1 * var(--spacing-6));
+  padding: var(--spacing-4) var(--spacing-6);
+}
+
+.notice-item-title {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: var(--spacing-3);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: var(--spacing-4);
+}
+
+.notice-item-icon {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.notice-item:hover .notice-item-icon {
+  background: var(--primary);
+}
+
+.notice-item-date {
+  flex-shrink: 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  margin-left: var(--spacing-4);
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-16) var(--spacing-8);
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  margin-bottom: var(--spacing-4);
+  opacity: 0.5;
+}
+
+.empty-state-text {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-4);
+}
+
+.empty-state-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+}
+
+/* 响应式 */
+@media (max-width: var(--container-lg)) {
+  .notice-section {
+    grid-template-columns: 1fr;
+  }
+
+  .notice-sidebar {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: var(--spacing-6);
+  }
+
+  .notice-tab-item {
+    flex-shrink: 0;
+    border-bottom: none;
+    border-right: 1px solid var(--border-color);
+    min-width: 120px;
+  }
+
+  .notice-tab-item:last-child {
+    border-right: none;
+  }
+}
+
+@media (max-width: var(--container-md)) {
+  .page-banner-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .page-banner-subtitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .notice-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-2);
+  }
+
+  .notice-item:hover {
+    margin: 0 calc(-1 * var(--spacing-4));
+    padding: var(--spacing-4);
+  }
+
+  .notice-item-title {
+    padding-right: 0;
+  }
+
+  .notice-item-date {
+    margin-left: 24px;
+  }
+}
