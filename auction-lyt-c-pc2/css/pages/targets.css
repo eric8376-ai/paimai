@@ -2,26 +2,57 @@
    标的物列表页样式
    ======================================== */
 
-/* 页面头部 */
-.page-header-section {
-  background: linear-gradient(135deg, var(--primary-800) 0%, var(--primary-900) 100%);
-  color: #fff;
-  padding: var(--spacing-12) 0 var(--spacing-16);
-  text-align: center;
+/* 页面横幅 */
+.page-banner {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
 }
 
-.page-header-section h1 {
+.page-banner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(25, 118, 210, 0.85) 0%, rgba(13, 71, 161, 0.9) 100%);
+  z-index: 1;
+}
+
+.page-banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #fff;
+  padding: var(--spacing-8);
+}
+
+.page-banner-title {
   font-size: var(--font-size-5xl);
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--spacing-4);
-  color: #fff;
+  text-align: center;
 }
 
-.page-header-section p {
-  font-size: var(--font-size-lg);
-  opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto;
+.page-banner-subtitle {
+  font-size: var(--font-size-xl);
+  opacity: 0.95;
+  text-align: center;
+  max-width: 700px;
 }
 
 /* 筛选区域 */
@@ -430,7 +461,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .page-header-section h1 {
+  .page-banner-title {
     font-size: var(--font-size-3xl);
   }
 
