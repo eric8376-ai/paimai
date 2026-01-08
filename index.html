@@ -1,17 +1,241 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=auction-lyt-c-pc2/index.html">
-  <title>鹭易通拍卖平台</title>
-  <script>
-    window.location.href = 'auction-lyt-c-pc2/index.html';
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鹭易通拍卖平台 - 项目导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1976D2;
+            --primary-dark: #0D47A1;
+            --primary-light: #E8EEF6;
+            --text-primary: #1A1A1A;
+            --text-secondary: #424242;
+            --bg-color: #F5F5F5;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --card-hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                         "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .project-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .project-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            transition: opacity 0.2s ease;
+        }
+
+        .project-link:hover {
+            opacity: 0.8;
+        }
+
+        .project-link::after {
+            content: '→';
+            margin-left: 6px;
+            transition: transform 0.2s ease;
+        }
+
+        .project-card:hover .project-link::after {
+            transform: translateX(4px);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 16px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-card {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div style="padding: 50px; text-align: center; font-family: Arial, sans-serif;">
-    <p>正在跳转到鹭易通拍卖平台...</p>
-    <p>如果没有自动跳转,请<a href="auction-lyt-c-pc2/index.html">点击这里</a></p>
-  </div>
+    <div class="container">
+        <div class="header">
+            <h1>鹭易通拍卖平台</h1>
+            <p>项目版本导航中心</p>
+        </div>
+
+        <div class="projects">
+            <!-- PC版 v1 -->
+            <a href="auction-lyt-c-pc/index.html" class="project-card">
+                <div class="project-icon">🖥️</div>
+                <h2 class="project-title">PC Web版 v1</h2>
+                <p class="project-description">
+                    第一版PC端网页,包含完整的企业拍卖平台功能,适合桌面端浏览器访问。
+                </p>
+                <div class="project-info">
+                    <span class="project-tag">桌面端</span>
+                    <span class="project-tag">响应式</span>
+                    <span class="project-tag">HTML5</span>
+                </div>
+                <div class="project-link">
+                    进入PC版 v1
+                </div>
+            </a>
+
+            <!-- PC版 v2 -->
+            <a href="auction-lyt-c-pc2/index.html" class="project-card">
+                <div class="project-icon">💻</div>
+                <h2 class="project-title">PC Web版 v2</h2>
+                <p class="project-description">
+                    第二版PC端网页,优化了用户界面和交互体验,新增更多功能模块。
+                </p>
+                <div class="project-info">
+                    <span class="project-tag">桌面端</span>
+                    <span class="project-tag">优化版</span>
+                    <span class="project-tag">现代设计</span>
+                </div>
+                <div class="project-link">
+                    进入PC版 v2
+                </div>
+            </a>
+
+            <!-- 小程序版 -->
+            <a href="auction-lyt-c-uni/pages/index/index.html" class="project-card">
+                <div class="project-icon">📱</div>
+                <h2 class="project-title">移动端/小程序版</h2>
+                <p class="project-description">
+                    从uni-app小程序转换的移动端网页,适配移动设备,支持触摸交互。
+                </p>
+                <div class="project-info">
+                    <span class="project-tag">移动端</span>
+                    <span class="project-tag">触屏优化</span>
+                    <span class="project-tag">轻量级</span>
+                </div>
+                <div class="project-link">
+                    进入移动版
+                </div>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 鹭易通拍卖平台. All rights reserved.</p>
+            <p style="margin-top: 8px;">请根据您的设备选择合适的版本访问</p>
+        </div>
+    </div>
 </body>
 </html>
