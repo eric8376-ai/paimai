@@ -1,0 +1,124 @@
+/* ========================================
+   文字颜色补充 - 确保所有文字都有正确的颜色
+   ======================================== */
+
+/* ===== 标题颜色修复 ===== */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+/* 特殊情况：Hero区域的大标题 */
+.hero-title {
+  color: var(--primary-900);
+}
+
+/* 统计卡片 */
+.stat-value {
+  color: var(--text-primary);
+}
+
+.stat-label {
+  color: var(--text-secondary);
+}
+
+/* 卡片标题 */
+.card-title {
+  color: var(--text-primary);
+}
+
+.card-subtitle {
+  color: var(--text-secondary);
+}
+
+/* 产品卡片 */
+.product-card-title {
+  color: var(--text-primary);
+}
+
+.product-card-desc {
+  color: var(--text-secondary);
+}
+
+.product-card-meta {
+  color: var(--text-tertiary);
+}
+
+.product-card-price-label {
+  color: var(--text-tertiary);
+}
+
+/* 按钮文字 */
+.btn {
+  color: #fff;
+}
+
+.btn-secondary,
+.btn-ghost,
+.btn-text {
+  color: var(--primary);
+}
+
+/* 链接 */
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* 页脚特殊处理（深色背景） */
+.site-footer {
+  color: var(--gray-300);
+}
+
+.site-footer .footer-logo-text {
+  color: #fff;
+}
+
+.site-footer .footer-title {
+  color: #fff;
+}
+
+.site-footer .footer-links a {
+  color: var(--gray-300);
+}
+
+.site-footer .footer-links a:hover {
+  color: #fff;
+}
+
+.site-footer .footer-copyright {
+  color: var(--gray-300);
+}
+
+/* 确保所有段落文字都有颜色 */
+p {
+  color: var(--text-secondary);
+}
+
+/* 描述性文字 */
+.desc,
+.description,
+.info {
+  color: var(--text-secondary);
+}
+
+/* 标签文字 */
+.tag,
+.label,
+.badge {
+  color: #fff;
+}
+
+/* 表单 */
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-disabled);
+}
+
+/* 禁用状态 */
+:disabled,
+[disabled] {
+  color: var(--text-disabled);
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的认证 - 鹭易通拍卖平台</title>
+    <link rel="stylesheet" href="../../../css/base/variables.css">
+    <link rel="stylesheet" href="../../../css/base/reset.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="info-box">
+            <div class="info-row">
+                <div class="info-label">姓名</div>
+                <div class="info-text">
+                    <input class="ipt" id="realName" type="text" placeholder="请输入您的姓名">
+                </div>
+            </div>
+            <div class="info-row">
+                <div class="info-label">身份证</div>
+                <div class="info-text">
+                    <input class="ipt" id="idCardNo" type="text" placeholder="请输入您的身份证" maxlength="18">
+                </div>
+            </div>
+        </div>
+        <div class="info-btn" id="submitBtn">提交</div>
+    </div>
+
+    <script>
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            bindEvents();
+        });
+
+        // 绑定事件
+        function bindEvents() {
+            document.getElementById('submitBtn').addEventListener('click', function() {
+                submitAuth();
+            });
+        }
+
+        // 提交认证
+        function submitAuth() {
+            const realName = document.getElementById('realName').value.trim();
+            const idCardNo = document.getElementById('idCardNo').value.trim();
+
+            // 验证姓名
+            if (!realName) {
+                showToast('请输入您的姓名');
+                return;
+            }
+
+            // 验证身份证号
+            if (!idCardNo) {
+                showToast('请输入您的身份证号码');
+                return;
+            }
+
+            // 身份证号格式验证
+            const idPattern = /^[1-9]\d{5}(18|19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{3}[\dX]$/;
+            if (!idPattern.test(idCardNo)) {
+                showToast('身份证号码格式不正确');
+                return;
+            }
+
+            // 模拟提交
+            showToast('核验成功');
+            console.log('认证数据:', { realName, idCardNo });
+
+            // 实际项目中应该调用API提交认证
+            // api.commonAjax({
+            //     url: "/client/open/user/auth/save",
+            //     method: "post",
+            //     data: {
+            //         realName: realName,
+            //         idCardNo: idCardNo
+            //     },
+            //     contentType: "application/json"
+            // }, res => {
+            //     if(res.code == 200) {
+            //         showToast('核验成功');
+            //         setTimeout(() => {
+            //             window.history.back();
+            //         }, 1500);
+            //     } else {
+            //         showToast(res.message);
+            //     }
+            // });
+
+            // 模拟返回上一页
+            setTimeout(() => {
+                window.history.back();
+            }, 1500);
+        }
+
+        // 显示提示
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

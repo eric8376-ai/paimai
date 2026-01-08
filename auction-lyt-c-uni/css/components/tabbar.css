@@ -1,0 +1,81 @@
+/* ========================================
+   TabBar 底部导航栏组件样式
+   ======================================== */
+
+.tabbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-fixed);
+    height: var(--tabbar-height);
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+    border-top: 1px solid var(--border-color);
+}
+
+.tab-item {
+    flex: 1;
+    padding: var(--spacing-2) 0;
+    text-align: center;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-base) var(--easing-default);
+    position: relative;
+    text-decoration: none;
+    display: block;
+}
+
+.tab-item.active {
+    color: var(--primary);
+}
+
+.tab-item.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.tab-item.active .tab-text {
+    font-weight: var(--font-weight-semibold);
+}
+
+.tab-icon {
+    font-size: 24px;
+    margin-bottom: var(--spacing-1);
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    transition: transform var(--transition-base) var(--easing-default);
+}
+
+.tab-item:active .tab-icon {
+    transform: scale(0.9);
+}
+
+.tab-text {
+    font-size: var(--font-size-xs);
+    line-height: 1.2;
+}
+
+/* ===== 响应式调整 ===== */
+@media (max-width: 375px) {
+    .tab-icon {
+        font-size: 20px;
+        height: 20px;
+        line-height: 20px;
+    }
+
+    .tab-text {
+        font-size: 10px;
+    }
+}

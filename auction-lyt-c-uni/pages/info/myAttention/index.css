@@ -1,0 +1,33 @@
+.container {
+    background: var(--bg-gray);
+    min-height: 100vh;
+    line-height: var(--line-height-normal);
+    padding-bottom: var(--spacing-4);
+}
+
+/* 标的物列表 */
+.lots-list {
+    padding: var(--spacing-3);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-3);
+    margin-bottom: var(--spacing-4);
+}
+
+/* 无数据提示 */
+.no-data {
+    opacity: 0.6;
+    margin-top: var(--spacing-8);
+    text-align: center;
+}
+
+.no-data img {
+    width: 120px;
+    height: 120px;
+}
+
+.no-data-text {
+    margin-top: var(--spacing-3);
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+}

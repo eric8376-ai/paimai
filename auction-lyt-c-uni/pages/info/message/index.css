@@ -1,0 +1,171 @@
+.container {
+    background: var(--bg-gray);
+    min-height: 100vh;
+    line-height: var(--line-height-normal);
+}
+
+/* 标签切换 */
+.tabs {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    box-shadow: var(--shadow-sm);
+}
+
+.tab-item {
+    flex: 1;
+    padding: var(--spacing-3) 0;
+    margin: 0 var(--spacing-3);
+    text-align: center;
+    color: var(--text-inverted);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-base) var(--easing-default);
+    opacity: 0.8;
+}
+
+.tab-item:active {
+    opacity: 0.6;
+}
+
+.tab-item.active {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    opacity: 1;
+}
+
+/* 消息列表 */
+.msg-list {
+    padding: var(--spacing-3);
+}
+
+.msg-item {
+    padding: var(--spacing-3);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    background: #FFF;
+    cursor: pointer;
+    transition: all var(--transition-base) var(--easing-default);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.msg-item + .msg-item {
+    margin-top: var(--spacing-3);
+}
+
+.msg-item:active {
+    background: var(--bg-gray);
+}
+
+.msg-title {
+    margin-bottom: var(--spacing-2);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.msg-type {
+    margin-bottom: var(--spacing-2);
+    color: var(--text-secondary);
+}
+
+.msg-info {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-tertiary);
+}
+
+/* 无数据提示 */
+.no-data {
+    opacity: 0.6;
+    margin-top: var(--spacing-8);
+    text-align: center;
+}
+
+.no-data img {
+    width: 120px;
+    height: 120px;
+}
+
+.no-data-text {
+    margin-top: var(--spacing-3);
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+}
+
+/* 弹窗 */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-modal);
+}
+
+.popup-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFF;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    padding: var(--spacing-4);
+    animation: slideUp var(--transition-base) var(--easing-out);
+    box-shadow: var(--shadow-xl);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.pop-title {
+    margin-bottom: var(--spacing-3);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.pop-info {
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.pop-btn {
+    margin-top: var(--spacing-3);
+    padding: var(--spacing-4) 0;
+    text-align: center;
+    background: var(--primary);
+    color: var(--text-inverted);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all var(--transition-base) var(--easing-default);
+}
+
+.pop-btn:active {
+    opacity: 0.8;
+}

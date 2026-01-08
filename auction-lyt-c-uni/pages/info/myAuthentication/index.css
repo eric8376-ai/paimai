@@ -1,0 +1,96 @@
+.container {
+    background: var(--bg-gray);
+    padding: var(--spacing-3);
+    min-height: 100vh;
+}
+
+/* 信息框 */
+.info-box {
+    background: #FFF;
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-3);
+}
+
+.info-row + .info-row {
+    border-top: 1px solid var(--border-color);
+}
+
+.info-label {
+    width: 100px;
+    flex-shrink: 0;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.info-label text {
+    color: var(--error);
+    margin-left: var(--spacing-1);
+}
+
+.info-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.info-text .ipt {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+}
+
+.info-text .ipt::placeholder {
+    color: var(--text-disabled);
+}
+
+/* 提交按钮 */
+.info-btn {
+    margin-top: var(--spacing-4);
+    padding: var(--spacing-3);
+    text-align: center;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-inverted);
+    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-base) var(--easing-default);
+    box-shadow: var(--shadow-sm);
+}
+
+.info-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* Toast提示 */
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: var(--spacing-3) var(--spacing-6);
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--text-inverted);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    opacity: 0;
+    transition: opacity var(--transition-base) var(--easing-default);
+    z-index: var(--z-tooltip);
+}
+
+.toast.show {
+    opacity: 1;
+}

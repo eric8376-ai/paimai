@@ -1,0 +1,36 @@
+/* ========================================
+   资产招商列表页样式
+   ======================================== */
+
+.container {
+    min-height: 100vh;
+    background-color: var(--bg-light);
+    padding-bottom: var(--tabbar-height);
+    line-height: var(--line-height-normal);
+}
+
+/* ===== 资产招商列表 ===== */
+.list {
+    padding: var(--spacing-4);
+}
+
+.investment-card {
+    margin-bottom: var(--spacing-3);
+    background: #FFF;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.investment-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===== 响应式调整 ===== */
+@media (max-width: 375px) {
+    .list {
+        padding: var(--spacing-3);
+    }
+}

@@ -1,0 +1,142 @@
+/* ========================================
+   标的物卡片组件样式
+   ======================================== */
+
+.lots-card {
+    background: #FFF;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base) var(--easing-default),
+                box-shadow var(--transition-base) var(--easing-default);
+    border: 1px solid var(--border-color);
+}
+
+.lots-card:active {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.lots-img {
+    position: relative;
+    background: var(--bg-gray);
+}
+
+.lots-img img {
+    width: 100%;
+    height: 93px;
+    object-fit: cover;
+    display: block;
+}
+
+.lots-tag {
+    position: absolute;
+    top: var(--spacing-2);
+    padding: var(--spacing-1) var(--spacing-2);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-inverted);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+    border-radius: var(--radius-sm);
+}
+
+.lots-tag.type {
+    right: var(--spacing-2);
+}
+
+.lots-tag.status {
+    left: var(--spacing-2);
+}
+
+.lots-tag.status.wait {
+    background: var(--warning);
+}
+
+.lots-tag.status.ongoing {
+    background: var(--primary);
+}
+
+.lots-tag.status.end {
+    background: var(--text-disabled);
+}
+
+.lots-info {
+    padding: var(--spacing-3) var(--spacing-3) var(--spacing-4);
+}
+
+.lots-title {
+    margin-bottom: var(--spacing-3);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-primary);
+    min-height: 2.5em;
+}
+
+.lots-desc {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+}
+
+.lots-desc.align-end {
+    justify-content: flex-end;
+}
+
+.lots-desc + .lots-desc {
+    margin-top: var(--spacing-2);
+}
+
+.desc-label {
+    color: var(--text-secondary);
+    margin-right: var(--spacing-1);
+}
+
+.price {
+    color: var(--primary);
+    margin-left: var(--spacing-1);
+}
+
+.price .stress {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+.icon-time::before {
+    content: "⏰";
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+}
+
+.auction-desc-val {
+    margin-left: var(--spacing-1);
+    color: var(--text-tertiary);
+}
+
+.investment-desc-val {
+    margin-left: var(--spacing-1);
+    color: var(--text-tertiary);
+}
+
+/* ===== 响应式调整 ===== */
+@media (max-width: 375px) {
+    .lots-img img {
+        height: 80px;
+    }
+
+    .lots-title {
+        font-size: 13px;
+    }
+
+    .price .stress {
+        font-size: var(--font-size-base);
+    }
+}

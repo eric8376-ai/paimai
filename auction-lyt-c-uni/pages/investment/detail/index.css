@@ -1,0 +1,271 @@
+/* ========================================
+   资产招商详情页样式
+   ======================================== */
+
+.container {
+    min-height: 100vh;
+    background: var(--bg-light);
+    line-height: 1;
+    padding-bottom: 80px;
+}
+
+/* ===== 导航栏 ===== */
+.nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #FFF;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-back {
+    font-size: 14px;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.nav-title {
+    font-size: 18px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+}
+
+/* ===== 资产招商图片轮播 ===== */
+.container-img {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+.swiper-content {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== 资产招商基本信息 ===== */
+.auction-info {
+    padding: 12px;
+    background: #FFF;
+}
+
+.auction_title {
+    font-weight: var(--font-weight-bold);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.auction-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.price {
+    display: flex;
+    align-items: flex-end;
+    font-size: 12px;
+    color: var(--primary);
+}
+
+.price_label {
+    color: var(--text-primary);
+}
+
+.price_number {
+    font-size: 21px;
+    font-weight: var(--font-weight-bold);
+}
+
+/* ===== 主体内容 ===== */
+.main {
+    padding: 12px;
+}
+
+/* ===== 标的信息 ===== */
+.lots-info {
+    margin-bottom: 16px;
+}
+
+.lots-info_title {
+    padding: 2px 8px;
+    border-left: 4px solid var(--primary);
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+}
+
+.lots-info-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    padding: 12px;
+    background: #FFF;
+    border-radius: 9px;
+}
+
+.lost-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    width: 50%;
+    font-size: 12px;
+}
+
+.lost-row.single-line {
+    width: 100%;
+}
+
+.lost-row_label {
+    margin-right: 4px;
+    color: var(--text-tertiary);
+}
+
+.lost-row_text {
+    flex: 1;
+    color: var(--text-primary);
+}
+
+.house-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    width: 50%;
+    font-size: 14px;
+}
+
+.house-row.single-line {
+    width: 100%;
+}
+
+.house-row_label {
+    margin-right: 4px;
+    color: var(--text-tertiary);
+}
+
+.house-row-text {
+    flex: 1;
+    color: var(--text-primary);
+}
+
+/* ===== 标签页 ===== */
+.tabs-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+}
+
+.tabs_item {
+    padding: 4px 0 14px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.tabs_item.active {
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    border-color: var(--primary);
+}
+
+/* ===== 竞拍须知 ===== */
+.notice-content {
+    padding: 10px;
+    background: #FFF;
+    border-radius: 4px;
+}
+
+.rich-content {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.rich-content p {
+    margin-bottom: 8px;
+}
+
+.rich-content strong {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+}
+
+/* ===== 底部按钮 ===== */
+.foot-module {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 16px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    background: #FFF;
+    border-top: 1px solid var(--border);
+    z-index: 100;
+}
+
+.foot-box {
+    width: 100%;
+}
+
+.foot-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.foot-btn {
+    flex: 1;
+    display: block;
+    padding: 9px 0;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    color: #FFF;
+    text-align: center;
+    background: var(--primary);
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.foot-btn.disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.a_link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* ===== 响应式调整 ===== */
+@media (max-width: 375px) {
+    .auction_title {
+        font-size: 13px;
+    }
+
+    .price_number {
+        font-size: 19px;
+    }
+
+    .lots-info_title {
+        font-size: 13px;
+    }
+}

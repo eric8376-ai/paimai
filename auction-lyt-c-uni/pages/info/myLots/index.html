@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的参拍 - 鹭易通拍卖平台</title>
+    <link rel="stylesheet" href="../../../css/base/variables.css">
+    <link rel="stylesheet" href="../../../css/base/reset.css">
+    <link rel="stylesheet" href="../../../css/components/lots-card.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 标签切换 -->
+        <div class="tabs">
+            <div class="tab-item active" data-index="0" onclick="changeTab(0)">报名中</div>
+            <div class="tab-item" data-index="1" onclick="changeTab(1)">参拍中</div>
+            <div class="tab-item" data-index="2" onclick="changeTab(2)">已成交</div>
+            <div class="tab-item" data-index="3" onclick="changeTab(3)">已结束</div>
+        </div>
+
+        <!-- 标的物列表 -->
+        <div class="lots-list" id="lotsList">
+            <!-- 列表内容将通过JS动态生成 -->
+        </div>
+
+        <!-- 无数据提示 -->
+        <div class="no-data" id="noData" style="display: none;">
+            <img src="../../../images/no-data.svg" alt="暂无数据">
+            <div class="no-data-text">暂无数据</div>
+        </div>
+    </div>
+
+    <script>
+        // 模拟数据
+        const mockData = {
+            0: [ // 报名中
+                {
+                    id: 1,
+                    title: '某市思明区湖滨北路房产一处',
+                    type: '房产',
+                    status: 'wait',
+                    statusText: '即将开始',
+                    price: 380,
+                    unit: '万元',
+                    auctionTime: '2025-01-15 10:00开拍',
+                    image: 'https://img.zgfczc.com/auction/image/auction-def.jpg'
+                },
+                {
+                    id: 2,
+                    title: '奔驰S400轿车一辆',
+                    type: '机动车',
+                    status: 'wait',
+                    statusText: '即将开始',
+                    price: 45,
+                    unit: '万元',
+                    auctionTime: '2025-01-20 14:00开拍',
+                    image: 'https://img.zgfczc.com/auction/image/auction-def.jpg'
+                }
+            ],
+            1: [ // 参拍中
+                {
+                    id: 3,
+                    title: '某科技有限公司30%股权',
+                    type: '股权',
+                    status: 'ongoing',
+                    statusText: '拍卖中',
+                    price: 850,
+                    unit: '万元',
+                    auctionTime: '2025-01-10 09:30开拍',
+                    image: 'https://img.zgfczc.com/auction/image/auction-def.jpg'
+                },
+                {
+                    id: 4,
+                    title: '某县工业用地一块',
+                    type: '土地',
+                    status: 'ongoing',
+                    statusText: '拍卖中',
+                    price: 680,
+                    unit: '万元',
+                    auctionTime: '2025-01-12 10:00开拍',
+                    image: 'https://img.zgfczc.com/auction/image/auction-def.jpg'
+                }
+            ],
+            2: [ // 已成交
+                {
+                    id: 5,
+                    title: '某市海沧区别墅一栋',
+                    type: '房产',
+                    status: 'end',
+                    statusText: '已成交',
+                    price: 1280,
+                    unit: '万元',
+                    auctionTime: '2025-01-05 10:00开拍',
+                    image: 'https://img.zgfczc.com/auction/image/auction-def.jpg'
+                }
+            ],
+            3: [ // 已结束
+                {
+                    id: 6,
+                    title: '某公司债权资产包',
+                    type: '债权',
+                    status: 'end',
+                    statusText: '已结束',
+                    price: 2100,
+                    unit: '万元',
+                    auctionTime: '2025-01-03 14:00开拍',
+                    image: 'https://img.zgfczc.com/auction/image/auction-def.jpg'
+                }
+            ]
+        };
+
+        let currentTab = 0;
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取URL参数中的type
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get('type');
+            if (type !== null) {
+                currentTab = parseInt(type);
+            }
+
+            initPage();
+        });
+
+        // 初始化页面
+        function initPage() {
+            updateTabs();
+            loadList();
+        }
+
+        // 切换标签
+        function changeTab(index) {
+            if (index === currentTab) return;
+            currentTab = index;
+            updateTabs();
+            loadList();
+        }
+
+        // 更新标签样式
+        function updateTabs() {
+            const tabs = document.querySelectorAll('.tab-item');
+            tabs.forEach((tab, index) => {
+                if (index === currentTab) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+
+        // 加载列表数据
+        function loadList() {
+            const listContainer = document.getElementById('lotsList');
+            const noData = document.getElementById('noData');
+            const data = mockData[currentTab] || [];
+
+            if (data.length === 0) {
+                listContainer.innerHTML = '';
+                noData.style.display = 'block';
+                return;
+            }
+
+            noData.style.display = 'none';
+            listContainer.innerHTML = data.map(item => createLotsCard(item)).join('');
+        }
+
+        // 创建标的物卡片HTML
+        function createLotsCard(item) {
+            const statusClass = {
+                'wait': 'wait',
+                'ongoing': 'ongoing',
+                'end': 'end'
+            }[item.status] || 'wait';
+
+            return `
+                <div class="lots-card" onclick="navigateToDetail(${item.id})">
+                    <div class="lots-img">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="lots-tag type">${item.type}</div>
+                        <div class="lots-tag status ${statusClass}">${item.statusText}</div>
+                    </div>
+                    <div class="lots-info">
+                        <div class="lots-title">${item.title}</div>
+                        <div class="lots-desc align-end">
+                            <div class="desc-label">起拍价</div>
+                            <div class="price"><span class="stress">${item.price}</span>${item.unit}</div>
+                        </div>
+                        <div class="lots-desc">
+                            <i class="icon-time"></i>
+                            <span class="auction-desc-val">${item.auctionTime}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 跳转到详情页
+        function navigateToDetail(id) {
+            window.location.href = `../../lots/detail/index.html?id=${id}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心 - 鹭易通拍卖平台</title>
+    <link rel="stylesheet" href="../../css/base/variables.css">
+    <link rel="stylesheet" href="../../css/base/reset.css">
+    <link rel="stylesheet" href="../../css/components/tabbar.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部用户信息 -->
+        <div class="header-content">
+            <img class="header-img" src="../../images/header-img.svg" alt="头像">
+            <div class="user-info" id="userInfo">
+                <div class="info-content">
+                    <div class="user-name" id="userName">张三</div>
+                    <div class="authentication" id="authStatus">已认证</div>
+                </div>
+                <div class="info-footer">
+                    <div class="login-out" id="loginOut">退出登录</div>
+                </div>
+            </div>
+            <div class="login" id="toLogin" style="display: none;">注册/登录</div>
+        </div>
+
+        <!-- 主要内容 -->
+        <div class="main">
+            <!-- 我的参拍 -->
+            <div class="main-box">
+                <div class="box-title">我的参拍</div>
+                <div class="content grid4">
+                    <div class="content-item" onclick="navigateTo('myLots/index.html')">
+                        <div class="item-img">
+                            <img src="../../images/sign.svg" alt="报名中">
+                        </div>
+                        <div class="item-name">报名中</div>
+                    </div>
+                    <div class="content-item" onclick="navigateTo('myLots/index.html?type=1')">
+                        <div class="item-img">
+                            <img src="../../images/auction.svg" alt="参拍中">
+                        </div>
+                        <div class="item-name">参拍中</div>
+                    </div>
+                    <div class="content-item" onclick="navigateTo('myLots/index.html?type=2')">
+                        <div class="item-img">
+                            <img src="../../images/transaction.svg" alt="已成交">
+                        </div>
+                        <div class="item-name">已成交</div>
+                    </div>
+                    <div class="content-item" onclick="navigateTo('myLots/index.html?type=3')">
+                        <div class="item-img">
+                            <img src="../../images/conclude.svg" alt="已结束">
+                        </div>
+                        <div class="item-name">已结束</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 常用功能 -->
+            <div class="main-box">
+                <div class="box-title">常用功能</div>
+                <div class="content grid3">
+                    <div class="content-item" onclick="navigateTo('myInfo/index.html')">
+                        <div class="item-img">
+                            <img src="../../images/info.svg" alt="我的资料">
+                        </div>
+                        <div class="item-name">我的资料</div>
+                    </div>
+                    <div class="content-item" onclick="navigateTo('myAuthentication/index.html')">
+                        <div class="item-img">
+                            <img src="../../images/authentication.svg" alt="我的认证">
+                        </div>
+                        <div class="item-name">我的认证</div>
+                    </div>
+                    <div class="content-item" onclick="navigateTo('myAttention/index.html')">
+                        <div class="item-img">
+                            <img src="../../images/attention.svg" alt="我的关注">
+                        </div>
+                        <div class="item-name">我的关注</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    <script>
+        // 模拟用户数据
+        let loginData = {
+            userName: '张三',
+            auth: 1 // 0: 未认证, 1: 已认证
+        };
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initPage();
+            bindEvents();
+        });
+
+        // 初始化页面
+        function initPage() {
+            const userInfo = document.getElementById('userInfo');
+            const toLogin = document.getElementById('toLogin');
+            const userName = document.getElementById('userName');
+            const authStatus = document.getElementById('authStatus');
+
+            if (loginData) {
+                userInfo.style.display = 'block';
+                toLogin.style.display = 'none';
+                userName.textContent = loginData.userName;
+                authStatus.textContent = loginData.auth === 0 ? '未认证' : '已认证';
+            } else {
+                userInfo.style.display = 'none';
+                toLogin.style.display = 'block';
+            }
+        }
+
+        // 绑定事件
+        function bindEvents() {
+            // 登录/注册
+            document.getElementById('toLogin').addEventListener('click', function() {
+                window.location.href = '../login/index.html';
+            });
+
+            // 退出登录
+            document.getElementById('loginOut').addEventListener('click', function() {
+                if (confirm('确定要退出登录吗?')) {
+                    loginData = null;
+                    localStorage.removeItem('loginData');
+                    initPage();
+                    showToast('已退出登录');
+                }
+            });
+        }
+
+        // 页面跳转
+        function navigateTo(url) {
+            if (!loginData) {
+                showToast('未登录,请先登录!');
+                setTimeout(() => {
+                    window.location.href = '../login/index.html';
+                }, 1500);
+                return;
+            }
+            window.location.href = url;
+        }
+
+        // 显示提示
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 2000);
+        }
+    </script>
+
+    <!-- 引入TabBar组件 -->
+    <script src="../../js/tabbar.js?v=7"></script>
+</body>
+</html>

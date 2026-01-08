@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的资料 - 鹭易通拍卖平台</title>
+    <link rel="stylesheet" href="../../../css/base/variables.css">
+    <link rel="stylesheet" href="../../../css/base/reset.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="info-pop">
+        <div class="info-box">
+            <div class="info-row">
+                <div class="info-label">登录账号</div>
+                <div class="info-text" id="userName">138****8888</div>
+            </div>
+            <div class="info-row" onclick="openSexPicker()">
+                <div class="info-label">性别<text>*</text></div>
+                <div class="info-text">
+                    <span id="sexText">请选择</span>
+                    <i class="icon-arrow"></i>
+                </div>
+            </div>
+        </div>
+        <div class="info-btn" id="saveBtn">提交</div>
+
+        <!-- 性别选择弹窗 -->
+        <div class="popup" id="sexPopup" style="display: none;">
+            <div class="popup-mask" onclick="closeSexPicker()"></div>
+            <div class="popup-content-center">
+                <div class="sex-pop">
+                    <div class="sex-pop-item" onclick="selectSex(0)">男</div>
+                    <div class="sex-pop-item" onclick="selectSex(1)">女</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 模拟用户数据
+        let loginData = {
+            userName: '138****8888',
+            sex: null // 0: 男, 1: 女
+        };
+
+        const sexList = [
+            { label: '男', val: 0 },
+            { label: '女', val: 1 }
+        ];
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initPage();
+            bindEvents();
+        });
+
+        // 初始化页面
+        function initPage() {
+            document.getElementById('userName').textContent = loginData.userName;
+            if (loginData.sex !== null) {
+                document.getElementById('sexText').textContent = sexList[loginData.sex].label;
+            }
+        }
+
+        // 绑定事件
+        function bindEvents() {
+            // 提交按钮
+            document.getElementById('saveBtn').addEventListener('click', function() {
+                saveData();
+            });
+        }
+
+        // 打开性别选择器
+        function openSexPicker() {
+            document.getElementById('sexPopup').style.display = 'block';
+        }
+
+        // 关闭性别选择器
+        function closeSexPicker() {
+            document.getElementById('sexPopup').style.display = 'none';
+        }
+
+        // 选择性别
+        function selectSex(index) {
+            loginData.sex = index;
+            document.getElementById('sexText').textContent = sexList[index].label;
+            closeSexPicker();
+        }
+
+        // 保存数据
+        function saveData() {
+            if (loginData.sex == null) {
+                showToast('请选择您的性别');
+                return;
+            }
+
+            // 模拟保存
+            showToast('保存成功');
+            console.log('保存的数据:', loginData);
+
+            // 实际项目中应该调用API保存数据
+            // api.commonAjax({
+            //     url: "/client/open/user/info/save",
+            //     method: "POST",
+            //     data: {
+            //         userName: loginData.userName,
+            //         sex: loginData.sex,
+            //         userImageUrl: loginData.userImageUrl
+            //     }
+            // }, res => {
+            //     showToast('保存成功');
+            // });
+        }
+
+        // 显示提示
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

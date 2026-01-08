@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录 - 鹭易通拍卖平台</title>
+    <link rel="stylesheet" href="../../css/base/variables.css">
+    <link rel="stylesheet" href="../../css/base/reset.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container-logo">
+            <img src="http://www.xmfczc.com/images/newindex/LOGO2.png" alt="鹭易通拍卖平台">
+        </div>
+        <div class="container-btn">
+            <button class="weixin-btn" id="loginBtn">授权登录</button>
+        </div>
+        <div class="container-tips">
+            <p>登录即表示同意《用户协议》和《隐私政策》</p>
+        </div>
+    </div>
+
+    <script>
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            bindEvents();
+
+            // 检查是否已登录
+            const loginData = localStorage.getItem('loginData');
+            if (loginData) {
+                // 已登录,返回上一页
+                window.history.back();
+            }
+        });
+
+        // 绑定事件
+        function bindEvents() {
+            document.getElementById('loginBtn').addEventListener('click', function() {
+                handleLogin();
+            });
+        }
+
+        // 处理登录
+        function handleLogin() {
+            showToast('登录中...');
+
+            // 模拟登录成功
+            setTimeout(() => {
+                const mockData = {
+                    userName: '张三',
+                    userId: '123456',
+                    token: 'mock_token_123456',
+                    auth: 0, // 0: 未认证, 1: 已认证
+                    phone: '138****8888'
+                };
+
+                // 保存登录信息
+                localStorage.setItem('loginData', JSON.stringify(mockData));
+                localStorage.setItem('token', mockData.token);
+
+                showToast('登录成功');
+
+                // 返回上一页
+                setTimeout(() => {
+                    window.history.back();
+                }, 1000);
+
+                // 实际项目中应该调用API进行授权登录
+                // api.commonAjax({
+                //     url: "/client/open/user/wx/get/phone",
+                //     method: 'POST',
+                //     data: {
+                //         code: code,
+                //     },
+                //     dataType: 'json',
+                //     contentType: "application/json"
+                // }, res => {
+                //     localStorage.setItem('loginData', JSON.stringify(res.data));
+                //     localStorage.setItem('token', res.data.token);
+                //     showToast('登录成功');
+                //     setTimeout(() => {
+                //         window.history.back();
+                //     }, 1000);
+                // });
+            }, 1500);
+        }
+
+        // 显示提示
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

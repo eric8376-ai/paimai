@@ -1,0 +1,122 @@
+/* ========================================
+   资产招商卡片组件样式
+   ======================================== */
+
+.investment-card {
+    background: #FFF;
+    display: flex;
+    padding: var(--spacing-3) 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-base) var(--easing-default);
+}
+
+.investment-card:active {
+    background-color: var(--bg-gray);
+}
+
+.investment-card:first-child {
+    padding-top: 0;
+}
+
+.investment-card:last-child {
+    border-bottom: none;
+}
+
+.investment-card + .investment-card {
+    margin-top: var(--spacing-3);
+    padding-top: var(--spacing-3);
+    border-top: 1px solid var(--border-color);
+}
+
+.investment-img {
+    width: 160px;
+    height: 90px;
+    position: relative;
+    margin-right: var(--spacing-3);
+    flex-shrink: 0;
+    background: var(--bg-gray);
+}
+
+.investment-img img {
+    width: 160px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    display: block;
+}
+
+.investment-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.investment-title {
+    margin-bottom: var(--spacing-3);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-primary);
+}
+
+.investment-info .lots-desc {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+}
+
+.investment-info .lots-desc.align-end {
+    align-items: flex-end;
+}
+
+.investment-info .lots-desc + .lots-desc {
+    margin-top: var(--spacing-2);
+}
+
+.investment-info .desc-label {
+    color: var(--text-secondary);
+    margin-right: var(--spacing-1);
+}
+
+.investment-info .price {
+    margin-left: var(--spacing-1);
+    color: var(--primary);
+}
+
+.investment-info .price .stress {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.investment-desc-val {
+    margin-left: var(--spacing-1);
+    color: var(--text-tertiary);
+}
+
+/* ===== 响应式调整 ===== */
+@media (max-width: 375px) {
+    .investment-img {
+        width: 140px;
+        height: 80px;
+    }
+
+    .investment-img img {
+        width: 140px;
+        height: 80px;
+    }
+
+    .investment-title {
+        font-size: 13px;
+    }
+
+    .investment-info .price .stress {
+        font-size: var(--font-size-lg);
+    }
+}

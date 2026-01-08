@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>通知消息 - 鹭易通拍卖平台</title>
+    <link rel="stylesheet" href="../../../css/base/variables.css">
+    <link rel="stylesheet" href="../../../css/base/reset.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 标签切换 -->
+        <div class="tabs">
+            <div class="tab-item active" data-index="0" onclick="changeTab(0)">全部</div>
+            <div class="tab-item" data-index="1" onclick="changeTab(1)">拍卖消息</div>
+            <div class="tab-item" data-index="2" onclick="changeTab(2)">系统消息</div>
+        </div>
+
+        <!-- 消息列表 -->
+        <div class="msg-list" id="msgList">
+            <!-- 消息内容将通过JS动态生成 -->
+        </div>
+
+        <!-- 无数据提示 -->
+        <div class="no-data" id="noData" style="display: none;">
+            <img src="../../../images/no-data.svg" alt="暂无数据">
+            <div class="no-data-text">暂无数据</div>
+        </div>
+
+        <!-- 消息详情弹窗 -->
+        <div class="popup" id="popup" style="display: none;">
+            <div class="popup-mask" onclick="closePop()"></div>
+            <div class="popup-content">
+                <div class="pop-title" id="popTitle">消息标题</div>
+                <div class="pop-info" id="popInfo">消息内容</div>
+                <div class="pop-btn" onclick="closePop()">知道了</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 模拟消息数据
+        const mockData = {
+            0: [ // 全部
+                {
+                    id: 1,
+                    title: '您关注的标的即将开始拍卖',
+                    type: 1,
+                    typeText: '拍卖消息',
+                    content: '您关注的"某市思明区湖滨北路房产一处"即将于2025-01-15 10:00开始拍卖,请做好准备。'
+                },
+                {
+                    id: 2,
+                    title: '系统维护通知',
+                    type: 2,
+                    typeText: '系统消息',
+                    content: '系统将于2025-01-10 02:00-06:00进行维护升级,届时将暂停服务,请提前安排您的拍卖计划。'
+                },
+                {
+                    id: 3,
+                    title: '出价成功提醒',
+                    type: 1,
+                    typeText: '拍卖消息',
+                    content: '您在"奔驰S400轿车一辆"拍卖中出价成功,当前价格为45.5万元。'
+                },
+                {
+                    id: 4,
+                    title: '实名认证成功',
+                    type: 2,
+                    typeText: '系统消息',
+                    content: '恭喜您已完成实名认证,现在可以参与所有拍卖活动。'
+                },
+                {
+                    id: 5,
+                    title: '新的拍卖会已发布',
+                    type: 1,
+                    typeText: '拍卖消息',
+                    content: '"一月房产专场拍卖会"已正式发布,共有20个标的物,欢迎参与竞拍。'
+                }
+            ],
+            1: [ // 拍卖消息
+                {
+                    id: 1,
+                    title: '您关注的标的即将开始拍卖',
+                    type: 1,
+                    typeText: '拍卖消息',
+                    content: '您关注的"某市思明区湖滨北路房产一处"即将于2025-01-15 10:00开始拍卖,请做好准备。'
+                },
+                {
+                    id: 3,
+                    title: '出价成功提醒',
+                    type: 1,
+                    typeText: '拍卖消息',
+                    content: '您在"奔驰S400轿车一辆"拍卖中出价成功,当前价格为45.5万元。'
+                },
+                {
+                    id: 5,
+                    title: '新的拍卖会已发布',
+                    type: 1,
+                    typeText: '拍卖消息',
+                    content: '"一月房产专场拍卖会"已正式发布,共有20个标的物,欢迎参与竞拍。'
+                }
+            ],
+            2: [ // 系统消息
+                {
+                    id: 2,
+                    title: '系统维护通知',
+                    type: 2,
+                    typeText: '系统消息',
+                    content: '系统将于2025-01-10 02:00-06:00进行维护升级,届时将暂停服务,请提前安排您的拍卖计划。'
+                },
+                {
+                    id: 4,
+                    title: '实名认证成功',
+                    type: 2,
+                    typeText: '系统消息',
+                    content: '恭喜您已完成实名认证,现在可以参与所有拍卖活动。'
+                }
+            ]
+        };
+
+        let currentTab = 0;
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadList();
+        });
+
+        // 切换标签
+        function changeTab(index) {
+            if (index === currentTab) return;
+            currentTab = index;
+            updateTabs();
+            loadList();
+        }
+
+        // 更新标签样式
+        function updateTabs() {
+            const tabs = document.querySelectorAll('.tab-item');
+            tabs.forEach((tab, index) => {
+                if (index === currentTab) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+
+        // 加载消息列表
+        function loadList() {
+            const listContainer = document.getElementById('msgList');
+            const noData = document.getElementById('noData');
+            const data = mockData[currentTab] || [];
+
+            if (data.length === 0) {
+                listContainer.innerHTML = '';
+                noData.style.display = 'block';
+                return;
+            }
+
+            noData.style.display = 'none';
+            listContainer.innerHTML = data.map(item => createMsgItem(item)).join('');
+        }
+
+        // 创建消息项HTML
+        function createMsgItem(item) {
+            return `
+                <div class="msg-item" onclick="openPop(${item.id})">
+                    <div class="msg-title">${item.title}</div>
+                    <div class="msg-type">消息类型:${item.typeText}</div>
+                    <div class="msg-info">${item.content}</div>
+                </div>
+            `;
+        }
+
+        // 打开弹窗
+        function openPop(id) {
+            const data = mockData[currentTab].find(item => item.id === id);
+            if (!data) return;
+
+            document.getElementById('popTitle').textContent = data.title;
+            document.getElementById('popInfo').textContent = data.content;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        // 关闭弹窗
+        function closePop() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
