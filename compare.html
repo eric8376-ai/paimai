@@ -521,13 +521,140 @@
             white-space: pre-wrap;
             word-break: break-word;
         }
+
+        /* 差异标注样式 */
+        .diff-line {
+            padding: 4px 8px;
+            margin: 2px 0;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .diff-line.same {
+            background: transparent;
+            color: #666;
+        }
+
+        .diff-line.removed {
+            background: #fee2e2;
+            color: #991b1b;
+            border-left: 3px solid #ef4444;
+        }
+
+        .diff-line.added {
+            background: #d1fae5;
+            color: #065f46;
+            border-left: 3px solid #10b981;
+        }
+
+        .diff-line.modified {
+            background: #fef3c7;
+            color: #92400e;
+            border-left: 3px solid #f59e0b;
+        }
+
+        /* 图例样式 */
+        .diff-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 12px 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+            align-items: center;
+        }
+
+        .legend-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .legend-item.legend-same {
+            background: transparent;
+            color: #666;
+        }
+
+        .legend-item.legend-same::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 16px;
+            background: transparent;
+            border: 1px solid #ddd;
+        }
+
+        .legend-item.legend-removed {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .legend-item.legend-removed::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 16px;
+            background: #fee2e2;
+            border-left: 3px solid #ef4444;
+        }
+
+        .legend-item.legend-added {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .legend-item.legend-added::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 16px;
+            background: #d1fae5;
+            border-left: 3px solid #10b981;
+        }
+
+        .legend-item.legend-modified {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .legend-item.legend-modified::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 16px;
+            background: #fef3c7;
+            border-left: 3px solid #f59e0b;
+        }
+
+        .similarity-label {
+            display: block;
+            font-size: 12px;
+            margin-top: 5px;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+
+        .compare-header {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>保函文档预览对比</h1>
-            <p class="subtitle">生成时间: 2026-01-21 09:28:37</p>
+            <p class="subtitle">生成时间: 2026-01-21 10:35:57</p>
         </div>
 
         <div class="stats-grid">
@@ -5731,6 +5858,14 @@
                 <button class="modal-close" onclick="closeModal('compareModal')">&times;</button>
             </div>
             <div class="modal-body">
+                <!-- 差异图例 -->
+                <div class="diff-legend">
+                    <span class="legend-title">图例说明：</span>
+                    <span class="legend-item legend-same">相同内容</span>
+                    <span class="legend-item legend-removed">删除内容（仅在文档1中）</span>
+                    <span class="legend-item legend-added">新增内容（仅在文档2中）</span>
+                    <span class="legend-item legend-modified">修改内容</span>
+                </div>
                 <div class="compare-view">
                     <div class="compare-panel">
                         <div class="compare-header" id="compareHeader1">文档1</div>
@@ -5815,6 +5950,107 @@
             updateSelectionInfo();
         }
 
+        function calculateTextSimilarity(text1, text2) {
+            // 计算纯文字相似度 - 删除符号后比较
+            const cleanText = (text) => {
+                if (!text) return "";
+                // 只保留中文、英文字母和数字
+                return text.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, '');
+            };
+
+            const clean1 = cleanText(text1);
+            const clean2 = cleanText(text2);
+
+            if (!clean1 && !clean2) return 100;
+            if (!clean1 || !clean2) return 0;
+
+            // 使用简单的字符匹配算法
+            const len1 = clean1.length;
+            const len2 = clean2.length;
+            const maxLen = Math.max(len1, len2);
+
+            // 计算编辑距离
+            const dp = Array(len1 + 1).fill(null).map(() => Array(len2 + 1).fill(0));
+            for (let i = 0; i <= len1; i++) dp[i][0] = i;
+            for (let j = 0; j <= len2; j++) dp[0][j] = j;
+
+            for (let i = 1; i <= len1; i++) {
+                for (let j = 1; j <= len2; j++) {
+                    if (clean1[i-1] === clean2[j-1]) {
+                        dp[i][j] = dp[i-1][j-1];
+                    } else {
+                        dp[i][j] = Math.min(dp[i-1][j] + 1, dp[i][j-1] + 1, dp[i-1][j-1] + 1);
+                    }
+                }
+            }
+
+            const distance = dp[len1][len2];
+            return Math.round((1 - distance / maxLen) * 1000) / 10;
+        }
+
+        function compareLines(lines1, lines2) {
+            // 简单的行对比算法
+            const result = [];
+            let i = 0, j = 0;
+
+            while (i < lines1.length || j < lines2.length) {
+                if (i >= lines1.length) {
+                    result.push({ type: 'added', line: lines2[j] });
+                    j++;
+                } else if (j >= lines2.length) {
+                    result.push({ type: 'removed', line: lines1[i] });
+                    i++;
+                } else {
+                    const line1 = lines1[i].trim();
+                    const line2 = lines2[j].trim();
+
+                    if (line1 === line2) {
+                        result.push({ type: 'same', line: line1 });
+                        i++;
+                        j++;
+                    } else {
+                        // 尝试在后续行中找到匹配
+                        let found1 = false, found2 = false;
+
+                        // 向前看几行
+                        for (let k = 1; k <= 3; k++) {
+                            if (i + k < lines1.length && lines1[i + k].trim() === line2) {
+                                found1 = true;
+                                break;
+                            }
+                            if (j + k < lines2.length && lines2[j + k].trim() === line1) {
+                                found2 = true;
+                                break;
+                            }
+                        }
+
+                        if (found1) {
+                            result.push({ type: 'removed', line: line1 });
+                            i++;
+                        } else if (found2) {
+                            result.push({ type: 'added', line: line2 });
+                            j++;
+                        } else {
+                            // 检查是否只是小改动
+                            const clean1 = line1.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, '');
+                            const clean2 = line2.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, '');
+
+                            if (clean1 === clean2) {
+                                result.push({ type: 'modified', line: line1, newLine: line2 });
+                            } else {
+                                result.push({ type: 'removed', line: line1 });
+                                result.push({ type: 'added', line: line2 });
+                            }
+                            i++;
+                            j++;
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
         function compareSelected(docType) {
             if (selectedDocs.length !== 2) return;
 
@@ -5824,15 +6060,50 @@
             const data1 = JSON.parse(document.getElementById('data-' + d1.docType + '-' + d1.idx).textContent);
             const data2 = JSON.parse(document.getElementById('data-' + d2.docType + '-' + d2.idx).textContent);
 
-            document.getElementById('compareHeader1').textContent =
+            // 计算相似度
+            const similarity = calculateTextSimilarity(data1.content, data2.content);
+
+            document.getElementById('compareHeader1').innerHTML =
                 '📄 ' + data1.docName + ' (' + data1.bank + ')';
-            document.getElementById('compareHeader2').textContent =
+            document.getElementById('compareHeader2').innerHTML =
                 '📄 ' + data2.docName + ' (' + data2.bank + ')';
             document.getElementById('compareModalTitle').textContent =
                 '文档对比 - ' + data1.docName + ' vs ' + data2.docName;
 
-            document.getElementById('compareContent1').textContent = data1.content || '无内容';
-            document.getElementById('compareContent2').textContent = data2.content || '无内容';
+            // 添加相似度信息
+            const similarityClass = similarity >= 80 ? 'high-sim' : similarity >= 50 ? 'mid-sim' : 'low-sim';
+            const similarityColor = similarity >= 80 ? '#10b981' : similarity >= 50 ? '#f59e0b' : '#ef4444';
+
+            document.getElementById('compareHeader1').innerHTML +=
+                '<span class="similarity-label">相似度: <span style="color:' + similarityColor + '">' + similarity + '%</span></span>';
+            document.getElementById('compareHeader2').innerHTML +=
+                '<span class="similarity-label">相似度: <span style="color:' + similarityColor + '">' + similarity + '%</span></span>';
+
+            // 按行分割并对比
+            const lines1 = (data1.content || '').split('\n');
+            const lines2 = (data2.content || '').split('\n');
+            const diffResult = compareLines(lines1, lines2);
+
+            // 生成差异标注的HTML
+            let html1 = '', html2 = '';
+
+            diffResult.forEach(item => {
+                const escaped = escapeHtml(item.line);
+                if (item.type === 'same') {
+                    html1 += '<div class="diff-line same">' + escaped + '</div>';
+                    html2 += '<div class="diff-line same">' + escaped + '</div>';
+                } else if (item.type === 'removed') {
+                    html1 += '<div class="diff-line removed">' + escaped + '</div>';
+                } else if (item.type === 'added') {
+                    html2 += '<div class="diff-line added">' + escaped + '</div>';
+                } else if (item.type === 'modified') {
+                    html1 += '<div class="diff-line modified">' + escaped + '</div>';
+                    html2 += '<div class="diff-line modified">' + escapeHtml(item.newLine) + '</div>';
+                }
+            });
+
+            document.getElementById('compareContent1').innerHTML = html1 || '<div class="empty-content">无内容</div>';
+            document.getElementById('compareContent2').innerHTML = html2 || '<div class="empty-content">无内容</div>';
 
             document.getElementById('compareModal').classList.add('active');
         }
